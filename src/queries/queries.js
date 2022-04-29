@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost';
 
-const getCategories = gql`
+const getCategoriesQuery = gql`
     {
         categories {
         name
@@ -9,4 +9,26 @@ const getCategories = gql`
   
 `;
 
-export { getCategories };
+const getProductsByCategoryQuery = gql`
+query GetProductsByCategory($title: String!) {
+    category(input: { title: $title }) {
+      name
+      products {
+        id
+        gallery
+        name
+        prices{
+          currency {
+            label
+            symbol
+          }
+          amount
+        }
+        inStock
+      }
+    }
+  }
+  
+`;
+
+export { getCategoriesQuery, getProductsByCategoryQuery };

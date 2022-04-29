@@ -1,84 +1,163 @@
-body{
-    background: #eee;
-    font-family: 'Nunito SemiBold';
+/* CSS RESET */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+  height: 100%;
+}
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering`
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
 }
 
-#main h1{
-    color: #444;
-    text-align: center;
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;300&display=swap");
+
+body {
+  font-family: "Raleway", sans-serif;
 }
 
-#main{
-    padding: 0px;
-    box-sizing: border-box;
-    width: 60%;
-    height: 100%;
+/* NAV BAR */
+.nav-bar-container {
+  background-color: aqua;
+  padding: 0 116px;
+  max-width: 1440px;
+  margin: auto;
 }
 
-#book-list{
-    padding: 0;
+.nav-bar-container > ul {
+  display: flex;
+  list-style: none;
+  font-weight: 600;
+  padding-inline-start: 0;
 }
 
-#book-list li{
-    display: inline-block;
-    margin: 12px;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #880E4F;
-    box-shadow: 1px 2px 3px rgba(0,0,0,0.3);
-    cursor: pointer;
-    color: #880E4F;
+.selected-category {
+  background-color: blue;
+}
+/* CATEGORY */
+.category-container {
+  padding: 80px 116px;
+  max-width: 1440px;
+  margin: auto;
 }
 
-form{
-    background: #fff;
-    padding: 20px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 400px;
+.category-container__title {
+  font-size: 2.625rem;
+}
+.category-container__title::first-letter {
+  text-transform: uppercase;
 }
 
-form .field{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
+/* PRODUCTS CONTAINER */
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 40px;
 }
 
-form label{
-    text-align: right;
-    padding: 6px;
+/*PRODUCT ITEM */
+
+.product-item-container {
+  width: 386px;
+  height: 444px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  justify-content: space-between;
+  box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
 }
 
-form input, form select{
-    margin: 4px 0;
-    padding: 6px;
-    box-sizing: border-box;
+.product-item-container__image {
+  width: 356px;
+  height: 338px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-form button{
-    color: #fff;
-    font-size: 2em;
-    background: #AD1457;
-    border: 0;
-    padding: 0 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
+.product-item-container__out-of-stock {
+  font-weight: 400;
+  color: #8D8F9A;
+  font-size: 1.5rem;
 }
 
-#book-details{
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 40%;
-    height: 100%;
-    background: #AD1457;
-    padding: 30px;
-    overflow: auto;
-    box-shadow: -2px -3px 5px rgba(0,0,0,0.3);
-    box-sizing: border-box;
-    color: #fff;
+.product-item-container__name {
+  font-size: 1.125rem;
+  font-weight: 300;
+
 }
+
+.product-item-container__price {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+/* XXXXXX */
+/* XXXXXX */
+/* XXXXXX */
+/* XXXXXX */
+/* XXXXXX */

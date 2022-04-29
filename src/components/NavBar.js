@@ -1,34 +1,48 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import { getCategories } from '../queries/queries';
-import { gql } from "apollo-boost";
-
+import CartProvider from "../context/CartProvider";
+import CartContext from "../context/CartContext";
 
 //components 
+import NavBarLink from "./NavBarLink";
+
+//queries
+import { getCategoriesQuery } from '../queries/queries';
 
 class NavBar extends Component {
     displayCategoriesLinks() {
         let data = this.props.data;
-        console.log(data);
+        // console.log(data);
         if (data.loading) {
             return (<div>Loading Links...</div>)
         } else {
             return data.categories.map(category => {
                 return (
-                    <li key={category.name}><a href={category.name}>{category.name.toUpperCase()}</a></li>
+                    <NavBarLink
+                        key={category.name}
+                        to={category.name}
+                        text={category.name.toUpperCase()}
+                    />
                 );
             })
         }
     }
     render() {
         return (
-            <div>
-                <ul>
-                    {this.displayCategoriesLinks()}
-                </ul>
-            </div>
+            <CartContext.Consumer>
+                {context => (
+                    <div>
+                        <div className="nav-bar-container">
+                            <ul>
+                                {this.displayCategoriesLinks()}
+                            </ul>
+                        </div>
+                        <div>{context.currency}</div>
+                    </div>
+                )}
+            </CartContext.Consumer>
         );
     }
 }
 
-export default graphql(getCategories)(NavBar);
+export default graphql(getCategoriesQuery)(NavBar);
