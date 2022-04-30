@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import CartProvider from "../context/CartProvider";
-import CartContext from "../context/CartContext";
 
 //components 
 import NavBarLink from "./NavBarLink";
+import CurrencySelector from "./CurrencySelector";
+import CartWidget from "./CartWidget";
 
 //queries
 import { getCategoriesQuery } from '../queries/queries';
@@ -29,18 +29,17 @@ class NavBar extends Component {
     }
     render() {
         return (
-            <CartContext.Consumer>
-                {context => (
-                    <div>
-                        <div className="nav-bar-container">
-                            <ul>
-                                {this.displayCategoriesLinks()}
-                            </ul>
-                        </div>
-                        <div>{context.currency}</div>
-                    </div>
-                )}
-            </CartContext.Consumer>
+            <div className="nav-bar-container">
+                <div className="nav-bar-container__links">
+                    <ul>
+                        {this.displayCategoriesLinks()}
+                    </ul>
+                </div>
+                <CurrencySelector
+                />
+                <CartWidget
+                />
+            </div>
         );
     }
 }

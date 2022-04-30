@@ -30,5 +30,13 @@ query GetProductsByCategory($title: String!) {
   }
   
 `;
+const getCurrenciesQuery = gql`
+    {
+      currencies {
+        label
+        symbol
+      }
+    }
+`;
 
-export { getCategoriesQuery, getProductsByCategoryQuery };
+export { getCategoriesQuery, getProductsByCategoryQuery, getCurrenciesQuery };

@@ -8,9 +8,9 @@ class ProductItem extends Component {
     }
 
     render() {
-        console.log(this.props.inStock);
+        //console.log(this.props.inStock);
         return (
-            <div className="product-item-container">
+            <div className="box-shadow product-item-container">
                 <div className="product-item-container__image" style={{ backgroundImage: 'url(' + this.props.image + ')' }}>
                     <span className="product-item-container__out-of-stock">{!this.props.inStock && "OUT OF STOCK"}</span>
                 </div>

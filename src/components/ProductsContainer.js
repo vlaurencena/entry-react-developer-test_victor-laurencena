@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import { gql } from "apollo-boost";
 
 //queries
 import { getProductsByCategoryQuery } from '../queries/queries';
 
 //components
-import ProductItem from "./ProductItem"
+import ProductItem from "./ProductItem";
 
 class ProductsContainer extends Component {
     constructor(props) {
@@ -22,10 +21,11 @@ class ProductsContainer extends Component {
         if (data.loading) {
             return (<div>Loading products...</div>)
         } else {
-            console.log(data.category.products);
+            //console.log(data.category.products);
             return data.category.products.map(product => {
                 return (
                     <ProductItem
+                        key={product.id}
                         id={product.id}
                         image={product.gallery[0]}
                         name={product.name}
