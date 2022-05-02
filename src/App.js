@@ -17,7 +17,7 @@ import Category from "./pages/Category";
 
 // apollo client setup
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql'
+  uri: 'http://localhost:4000/',
 });
 
 class App extends Component {

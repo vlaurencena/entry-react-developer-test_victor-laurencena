@@ -71,7 +71,7 @@ h6 {
 }
 
 /* FONTS */
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap');
 
 body {
   font-family: "Raleway", sans-serif;

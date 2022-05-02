@@ -31,7 +31,7 @@ export default class MyProvider extends Component {
 
     componentDidMount() {
         const localStorageCurrentCurrency = localStorage.getItem("currentCurrency");
-        console.log(localStorageCurrentCurrency);
+        //console.log(localStorageCurrentCurrency);
         if (localStorageCurrentCurrency === null) {
             console.log("here");
             this.updateLocalStorage("currentCurrency", JSON.stringify(this.state.currentCurrency));

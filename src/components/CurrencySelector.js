@@ -46,8 +46,8 @@ class CurrencySelector extends Component {
     }
 
     handleClick(e) {
-        console.log(e.currentTarget.id);
-        console.log(e.currentTarget.title);
+        //console.log(e.currentTarget.id);
+        //console.log(e.currentTarget.title);
         this.context.updateCurrentCurrency(e.currentTarget.id, e.currentTarget.title);
     }
 

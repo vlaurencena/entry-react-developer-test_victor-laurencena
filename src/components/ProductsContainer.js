@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 
+//components 
+import ProductItem from "./ProductItem";
+
+//context
+import CartContext from "../context/CartContext";
+
 //queries
 import { getProductsByCategoryQuery } from '../queries/queries';
 
-//components
-import ProductItem from "./ProductItem";
-
 class ProductsContainer extends Component {
+    static contextType = CartContext;
     constructor(props) {
         super(props);
         this.state = {
@@ -21,7 +25,6 @@ class ProductsContainer extends Component {
         if (data.loading) {
             return (<div>Loading products...</div>)
         } else {
-            //console.log(data.category.products);
             return data.category.products.map(product => {
                 return (
                     <ProductItem
@@ -29,7 +32,7 @@ class ProductsContainer extends Component {
                         id={product.id}
                         image={product.gallery[0]}
                         name={product.name}
-                        prices={product.prices[0]}
+                        prices={product.prices.find(price => price.currency.label === this.context.currentCurrency.label)}
                         inStock={product.inStock}
                     />
                 );
@@ -39,6 +42,7 @@ class ProductsContainer extends Component {
     }
 
     render() {
+        //console.log(this.context.currentCurrency.label);
         return (
             <div className="products-container">
                 {this.getProductsByCategory()}
