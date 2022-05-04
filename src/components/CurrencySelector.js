@@ -23,7 +23,7 @@ class CurrencySelector extends Component {
 
     displayCurrencies() {
         let data = this.props.data;
-        //  console.log(data.currencies);
+        //console.log(data.currencies);
         if (data.loading) {
             return (<div>Loading Links...</div>)
         } else {
@@ -32,7 +32,7 @@ class CurrencySelector extends Component {
                     <div
                         onClick={this.handleClick}
                         selected={this.context.currentCurrency === currency.label}
-                        className={`currency-item ${this.context.currentCurrency.label === currency.label ? "background-gray" : "background-white"}`}
+                        className={`currency-item ${this.context.currentCurrencyLabel === currency.label ? "background-gray" : "background-white"}`}
                         key={currency.label}
                         id={currency.label}
                         title={currency.symbol}
@@ -66,7 +66,7 @@ class CurrencySelector extends Component {
     render() {
         return (
             <div className="currency-selector-container" onMouseEnter={this.handleOnMouseEnter} onMouseLeave={this.handleOnMouseLeave}>
-                <span className="money-icon">{this.context.currentCurrency.symbol}</span>
+                <span className="money-icon">{this.context.currentCurrencySymbol}</span>
                 <div className={`currencies-list box-shadow ${this.state.hover ? "display-flex" : "display-none"}`}>
                     {this.displayCurrencies()}
                 </div>

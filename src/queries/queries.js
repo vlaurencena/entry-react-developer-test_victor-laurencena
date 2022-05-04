@@ -15,6 +15,7 @@ query GetProductsByCategory($title: String!) {
       name
       products {
         id
+        category
         gallery
         name
         prices{
@@ -30,6 +31,37 @@ query GetProductsByCategory($title: String!) {
   }
   
 `;
+
+const getProductByIdQuery = gql`
+  query GetProductById($id: String!){
+    product(id: $id)  {
+      id
+      brand
+      name
+      description
+      inStock
+      gallery
+      attributes {
+        id
+        name
+        type
+        items {
+          id
+          displayValue
+        value
+        }
+      }
+      prices{
+        currency {
+          label
+          symbol
+        }
+        amount
+      }
+    }
+  }
+`;
+
 const getCurrenciesQuery = gql`
     {
       currencies {
@@ -39,4 +71,9 @@ const getCurrenciesQuery = gql`
     }
 `;
 
-export { getCategoriesQuery, getProductsByCategoryQuery, getCurrenciesQuery };
+export {
+  getCategoriesQuery,
+  getProductsByCategoryQuery,
+  getCurrenciesQuery,
+  getProductByIdQuery
+};

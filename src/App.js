@@ -13,7 +13,11 @@ import CartProvider from "./context/CartProvider";
 
 // components
 import NavBar from "./components/NavBar";
+
+//pages
 import Category from "./pages/Category";
+import Product from "./pages/Product";
+import Cart from "./pages/Cart";
 
 // apollo client setup
 const client = new ApolloClient({
@@ -28,11 +32,17 @@ class App extends Component {
           <ApolloProvider client={client}>
             <NavBar />
             <Switch>
+              <Route path="/Cart">
+                <Cart />
+              </Route>
+              <Route path="/:category/:productId">
+                <Product />
+              </Route>
+              <Route path="/:category">
+                <Category />
+              </Route>
               <Route exact path="/">
                 <Redirect to="/all" />
-              </Route>
-              <Route exact path="/:category">
-                <Category />
               </Route>
             </Switch>
           </ApolloProvider>

@@ -8,10 +8,10 @@ import { withRouter } from 'react-router-dom';
 class NavBarLink extends Component {
 
     render() {
-        //console.log(this.props);
+       //console.log(this.props);
         return (
             <li>
-                <NavLink exact key={this.props.key} to={this.props.to}>
+                <NavLink exact key={this.props.key} to={`/${this.props.to}`}>
                     {this.props.text}
                 </NavLink>
             </li>

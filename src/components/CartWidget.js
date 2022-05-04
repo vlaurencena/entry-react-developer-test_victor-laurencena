@@ -1,18 +1,33 @@
 import React, { Component } from 'react';
 
 
-//components 
-
+//context
+import CartContext from "../context/CartContext";
 
 //queries
 
-class CartWidget extends Component {
+//componentes
+import ProductAttributes from "./ProductAttributes";
 
+class CartWidget extends Component {
+    static contextType = CartContext;
     render() {
         return (
-            <div>
-                CartWidget
-            </div>
+            <a href="/cart">
+                {this.context.cart.map((item, index) => {
+                    return (
+                        <div key={index}>
+                            <div>{item.name}</div>
+                            <div>{item.quantity}</div>
+                            <ProductAttributes
+                                attributes={item.attributes}
+                                // handleSelection={this.handleSelection}
+                                selectedAttributes={item.selectedAttributes}
+                            />
+                        </div>
+                    );
+                })}
+            </a>
         );
     }
 }

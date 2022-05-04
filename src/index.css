@@ -71,7 +71,7 @@ h6 {
 }
 
 /* FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap");
 
 body {
   font-family: "Raleway", sans-serif;
@@ -87,6 +87,14 @@ body {
 }
 .display-none {
   display: none;
+}
+
+.background-white {
+  background-color: #ffffff;
+}
+
+.background-gray {
+  background-color: #eeeeee;
 }
 
 /* NAV BAR */
@@ -144,6 +152,11 @@ body {
   justify-content: space-between;
 }
 
+.product-item-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .product-item-container__image {
   width: 356px;
   height: 338px;
@@ -188,19 +201,108 @@ body {
 .currencies-list > div {
   padding: 10px 40px 10px 20px;
 }
-/* XXXXXX */
-/* XXXXXX */
-/* XXXXXX */
-/* XXXXXX */
-
-.background-white {
-  background-color: #ffffff;
-}
-
-.background-gray {
-  background-color: #eeeeee;
-}
 
 .currency-selector-container:hover {
-cursor: pointer;
+  cursor: pointer;
 }
+
+/* PRODUCT DETAIL CONTAINER */
+.product-detail-container {
+  display: flex;
+}
+
+/* PRODUCT DETAIL GALLERY */
+.gallery-container {
+  display: flex;
+}
+
+.gallery-container__secondary-images-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-container__secondary-image {
+  height: 80px;
+  width: 80px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.gallery-container__main-image {
+  height: 511px;
+  width: 610px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* PRODUCT DETAIL SPECS */
+.product-detail-specs__brand {
+  font-size: 1.875rem;
+  font-weight: 600;
+}
+
+.product-detail-specs__name {
+  font-size: 1.875rem;
+}
+
+.product-detail-specs__attribute-name,
+.product-detail-specs__price {
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.product-detail-specs__amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.product-detail-specs__attributes-list {
+  display: flex;
+}
+.product-attribute-type-text {
+  padding: 13px 27px;
+  border: 1px solid #000000;
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.selected-text-attribute {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.product-attribute-type-color {
+  margin: 0 3px;
+  min-width: 32px;
+  min-height: 32px;
+  cursor: pointer;
+}
+
+.selected-color-attribute {
+  border: 1px solid #ffffff;
+  outline: 1px solid #5ece7b;
+}
+
+.product-detail-specs__attributes-list > div:first-child {
+  margin-left: 0;
+}
+
+.add-and-subtract-container {
+  display: inline-flex;
+  align-items: center;
+  margin-right: auto;
+  text-align: center;
+}
+.add-and-subtract-amount {
+  min-width: 45px;
+}
+.add-and-subtract-button {
+  height: 45px;
+  width: 45px;
+  border: 1px solid #1d1f22;
+}
+/* XXXXXX */
+/* XXXXXX */
