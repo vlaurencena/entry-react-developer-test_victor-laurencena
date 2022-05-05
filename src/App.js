@@ -32,7 +32,7 @@ class App extends Component {
           <ApolloProvider client={client}>
             <NavBar />
             <Switch>
-              <Route path="/Cart">
+              <Route path="/cart">
                 <Cart />
               </Route>
               <Route path="/:category/:productId">
