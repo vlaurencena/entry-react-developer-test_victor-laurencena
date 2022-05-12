@@ -456,6 +456,7 @@ a.nav-bar__links--selected {
   background-repeat: no-repeat;
   background-size: contain;
   position: relative;
+  margin: auto 0;
 }
 
 .cart-list-item-carrousel__control {
@@ -561,7 +562,7 @@ a.nav-bar__links--selected {
 .cart-widget-hover .product-detail-specs__attributes-list > div {
   font-size: 0.875rem;
   height: 24px;
-  width: 24px;
+  padding: 0 2px;
   cursor: inherit;
 }
 
@@ -588,7 +589,7 @@ a.nav-bar__links--selected {
 }
 .cart-widget-hover .add-and-subtract-container {
   width: 24px;
-  height: 190px;
+  /* height: 190px; */
 }
 
 .cart-widget-hover .cart-list-item-carrousel {

@@ -6,13 +6,13 @@ class ProductAttributes extends Component {
         this.checkIsSelected = this.checkIsSelected.bind(this)
     }
 
-    checkIsSelected(value) {
-        if(this.props.selectedAttributes) {
-            return Object.values(this.props.selectedAttributes).includes(value);
+    checkIsSelected(attributeName, value) {
+        if (this.props.selectedAttributes) {
+            return this.props.selectedAttributes[attributeName] === value;
         }
     }
-    render() {
 
+    render() {
         return (
             <div className="product-attributes">
                 {this.props.attributes.map(attribute => (
@@ -21,11 +21,10 @@ class ProductAttributes extends Component {
                             {attribute.items.map(item => (
                                 attribute.type === "text" ?
                                     <div
-                                        //TODO DINAMYC CLASSES
                                         onClick={this.props.handleSelection}
                                         key={item.value}
                                         id={item.id}
-                                        className={"product-attribute-type-text " + (this.checkIsSelected(item.id) ? "selected-text-attribute" : "")}
+                                        className={"product-attribute-type-text " + (this.checkIsSelected(attribute.id, item.id) ? "selected-text-attribute" : "")}
                                     >
                                         {item.value}
                                     </div>
@@ -34,7 +33,7 @@ class ProductAttributes extends Component {
                                         onClick={this.props.handleSelection}
                                         key={item.value}
                                         id={item.id}
-                                        className={"product-attribute-type-color " + (this.checkIsSelected(item.id) ? "selected-color-attribute" : "")}
+                                        className={"product-attribute-type-color " + (this.checkIsSelected(attribute.id, item.id) ? "selected-color-attribute" : "")}
                                         style={{ backgroundColor: item.value }}>
                                     </div>
                             ))}

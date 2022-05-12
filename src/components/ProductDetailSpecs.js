@@ -28,7 +28,6 @@ class ProductDetailSpecs extends Component {
         });
     }
 
-
     handleAddToCart() {
         const product = {
             id: this.props.id,
