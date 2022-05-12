@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class ProductDetailGallery extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedImage: 'url(' + this.props.gallery[0] + ')',
+            selectedImage: "url(" + this.props.gallery[0] + ")",
         };
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick(e) {
         const clickedImage = window.getComputedStyle(e.currentTarget).getPropertyValue("background-image");
-        //console.log(clickedImage);
         this.setState({
             selectedImage: clickedImage
         })
@@ -27,7 +26,7 @@ class ProductDetailGallery extends Component {
                                 key={secondaryImage}
                                 onClick={this.handleClick}
                                 className="gallery-container__secondary-image"
-                                style={{ backgroundImage: 'url(' + secondaryImage + ')' }} />
+                                style={{ backgroundImage: "url(" + secondaryImage + ")" }} />
                         );
                     })}
                 </div>

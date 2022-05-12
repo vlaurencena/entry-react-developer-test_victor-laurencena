@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import CartContext from './CartContext';
+import React, { Component } from "react";
+import CartContext from "./CartContext";
 
 export default class MyProvider extends Component {
     constructor(props) {
@@ -46,7 +46,6 @@ export default class MyProvider extends Component {
                 cart: [...JSON.parse(localStorageCart)]
             });
         }
-        // console.log(this.state.cart);
     }
 
     //CURRENCY SELECTOR
@@ -63,8 +62,6 @@ export default class MyProvider extends Component {
     deepEqual(object1, object2) {
         const keys1 = Object.keys(object1).filter(key => key !== "quantity");
         const keys2 = Object.keys(object2).filter(key => key !== "quantity");
-        // const keys2 = Object.keys(object2).filter(key => key !== "quantity");
-        // const keys2 = Object.keys(object2).filter(key => key !== "quantity");
         if (keys1.length !== keys2.length) {
             return false;
         }
@@ -83,7 +80,7 @@ export default class MyProvider extends Component {
     }
 
     isObject(object) {
-        return object != null && typeof object === 'object';
+        return object != null && typeof object === "object";
     }
 
     checkIsInCart(productToCheck) {
@@ -99,7 +96,6 @@ export default class MyProvider extends Component {
     }
 
     addToCart(productToAdd) {
-        // console.log(productToAdd);
         if (!this.checkIsInCart(productToAdd)[0]) {
             const oldCart = this.state.cart;
             productToAdd.quantity = 1;
@@ -113,7 +109,6 @@ export default class MyProvider extends Component {
     }
 
     getCartTotalItems() {
-        // console.log(this.state.cart);
         let total = 0;
         if (this.state.cart.length > 0) {
             this.state.cart.map(product => {
@@ -123,7 +118,6 @@ export default class MyProvider extends Component {
         }
     }
     getCartTotalAmountWithoutTaxes() {
-        // console.log(this.state.cart);
         let total = 0;
         if (this.state.cart.length > 0) {
             this.state.cart.map(product => {
@@ -137,12 +131,11 @@ export default class MyProvider extends Component {
     calculateTaxes() {
         const totalWithoutTaxes = Number(this.getCartTotalAmountWithoutTaxes());
         const taxesAmount = Number((this.getCartTotalAmountWithoutTaxes() * this.state.taxes).toFixed(2));
-        const totalIncludingTaxes = Number(totalWithoutTaxes + taxesAmount);
+        const totalIncludingTaxes = Number(totalWithoutTaxes + taxesAmount).toFixed(2);
         return { taxesAmount, totalIncludingTaxes };
     }
 
     updateProductQuantity(product, operation) {
-        // console.log(operation);
         let productToUpdate = product;
         let temporaryCart = this.state.cart.filter(item => item !== productToUpdate);
         if (operation === "subtract") {
@@ -174,8 +167,6 @@ export default class MyProvider extends Component {
     }
 
     render() {
-        // console.log("Cart:");
-        // console.log(this.state.cart);
         return (
             <CartContext.Provider
                 value={{

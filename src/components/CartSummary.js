@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 //context
 import CartContext from "../context/CartContext";
@@ -10,10 +10,15 @@ class CartSummary extends Component {
     static contextType = CartContext;
     render() {
         return (
-            <div className="">
-                <div>Tax 21%: {this.context.currentCurrencySymbol}<span>{this.context.calculateTaxes().taxesAmount}</span></div>
-                <div>Quantity: <span>{this.context.getCartTotalItems()}</span></div>
-                <div>Total: <span>{this.context.currentCurrencySymbol}{this.context.calculateTaxes().totalIncludingTaxes}</span></div>
+            <div className="cart-summary">
+                <div className="cart-summary__info">
+                    <div>Tax 21%: </div>
+                    <div>{this.context.currentCurrencySymbol}{this.context.calculateTaxes().taxesAmount}</div>
+                    <div>Quantity: </div>
+                    <div>{this.context.getCartTotalItems()}</div>
+                    <div>Total: </div>
+                    <div>{this.context.currentCurrencySymbol}{this.context.calculateTaxes().totalIncludingTaxes}</div>
+                </div>
                 <OrderButton />
             </div>
         );

@@ -1,29 +1,20 @@
-import React, { Component } from 'react';
-
-
-//components 
+import React, { Component } from "react";
 
 //context
 import CartContext from "../context/CartContext";
-
-//queries
 
 class addToCartButton extends Component {
     static contextType = CartContext;
     constructor(props) {
         super(props);
-        // this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
     
     handleClick(e) {
-        // console.log(e.target);
         this.context.updateProductQuantity(this.context.checkIsInCart(this.props.currentProduct)[1], e.target.value);
     }
 
     render() {
-        console.log(this.props.currentProduct);
-        //console.log(this.context.checkIsInCart(this.props.currentProduct));
         return (
             <div>
                 {this.context.checkIsInCart(this.props.currentProduct)[0] ?

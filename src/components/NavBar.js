@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
+import React, { Component } from "react";
+import { graphql } from "react-apollo";
 
 //components 
 import NavBarLink from "./NavBarLink";
@@ -7,12 +7,11 @@ import CurrencySelector from "./CurrencySelector";
 import CartWidget from "./CartWidget";
 
 //queries
-import { getCategoriesQuery } from '../queries/queries';
+import { getCategoriesQuery } from "../queries/queries";
 
 class NavBar extends Component {
     displayCategoriesLinks() {
         let data = this.props.data;
-        //console.log(data);
         if (data.loading) {
             return (<div>Loading Links...</div>)
         } else {
@@ -27,6 +26,7 @@ class NavBar extends Component {
             })
         }
     }
+
     render() {
         return (
             <div className="nav-bar max-width-1240">

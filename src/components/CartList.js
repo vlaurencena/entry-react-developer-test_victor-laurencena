@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 //context
 import CartContext from "../context/CartContext";
@@ -9,22 +9,21 @@ import CartListItem from "./CartListItem";
 class CartList extends Component {
     static contextType = CartContext;
 
-render() {
-    //console.log(this.context.cart.length);
-    return (
-        <div>
-            {this.context.cart.length > 0 && this.context.cart.map((item, index) => {
-                return (
-                    <CartListItem
-                        key={index}
-                        onWidget={false}
-                        item={item}
-                    />
-                )
-            })}
-        </div>
-    );
-}
+    render() {
+        return (
+            <div>
+                {this.context.cart.length > 0 && this.context.cart.map((item, index) => {
+                    return (
+                        <CartListItem
+                            key={index}
+                            onWidget={this.props.onWidget}
+                            item={item}
+                        />
+                    )
+                })}
+            </div>
+        );
+    }
 }
 
 export default CartList;

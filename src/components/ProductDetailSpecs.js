@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 //components
 import ProductBrandAndName from "./ProductBrandAndName";
 import ProductAttributes from "./ProductAttributes";
 import AddToCartButton from "./AddToCartButton";
 import ProductPrice from "./ProductPrice";
-import OutOfStockButton from "./OutOfStockButton";
+import Button from "./Button";
 
 //context
 import CartContext from "../context/CartContext";
@@ -83,7 +83,10 @@ class ProductDetailSpecs extends Component {
                         inStock: this.props.inStock
                     }}
                 /> :
-                <OutOfStockButton />
+                    <Button
+                        text="out of stock"
+                        color="black"
+                    />
                 }
                 <div className="product-description" dangerouslySetInnerHTML={this.createMarkup()} />
             </div>

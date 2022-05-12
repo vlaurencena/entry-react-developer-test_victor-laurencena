@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
+import React, { Component } from "react";
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
 import { BrowserRouter } from "react-router-dom";
 import {
   BrowserRouter as Router,
@@ -22,7 +22,7 @@ import Footer from "./components/Footer";
 
 // apollo client setup
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/',
+  uri: "http://localhost:4000/",
 });
 
 class App extends Component {

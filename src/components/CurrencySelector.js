@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
-
+import React, { Component } from "react";
+import { graphql } from "react-apollo";
 
 //context
 import CartContext from "../context/CartContext";
 
 //queries
-import { getCurrenciesQuery } from '../queries/queries';
+import { getCurrenciesQuery } from "../queries/queries";
 
 class CurrencySelector extends Component {
     static contextType = CartContext;
@@ -22,7 +21,6 @@ class CurrencySelector extends Component {
 
     displayCurrencies() {
         let data = this.props.data;
-        //console.log(data.currencies);
         if (data.loading) {
             return (<div>Loading Links...</div>)
         } else {
@@ -45,8 +43,6 @@ class CurrencySelector extends Component {
     }
 
     handleClick(e) {
-        //console.log(e.currentTarget.id);
-        //console.log(e.currentTarget.title);
         this.context.updateCurrentCurrency(e.currentTarget.id, e.currentTarget.title);
     }
 
@@ -63,7 +59,6 @@ class CurrencySelector extends Component {
     }
 
     render() {
-        //console.log(this.context.currentCurrencySymbol);
         return (
             <div className="currency-selector" onMouseEnter={this.handleOnMouseEnter} onMouseLeave={this.handleOnMouseLeave}>
                 <span className="money-icon">{this.context.currentCurrencySymbol}<span className={`material-symbols-outlined currency-selector__expand-more ${this.state.hover ? "rotate-180" : ""}`}>

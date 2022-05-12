@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class CartListItemCarousel extends Component {
     constructor(props) {
@@ -10,8 +10,6 @@ class CartListItemCarousel extends Component {
     }
 
     handleClick(e) {
-        // console.log(e.target.parentNode);
-        // console.log(e.target);
         if (e.target.parentNode.value === "plus") {
             if (this.props.gallery.length - 1 === this.state.index) {
                 this.setState({
@@ -38,15 +36,13 @@ class CartListItemCarousel extends Component {
     }
 
     render() {
-        // console.log(this.props.gallery);
-        // console.log(this.props.onWidget);
         return (
             <div
                 className={this.props.onWidget
                     ? "cart-list-item-carrousel-on-widget"
                     : "cart-list-item-carrousel"
                 }
-                style={{ backgroundImage: 'url(' + this.props.gallery[this.state.index] + ')' }}
+                style={{ backgroundImage: "url(" + this.props.gallery[this.state.index] + ")" }}
             >
                 {!this.props.onWidget &&
                     <div className="cart-list-item-carrousel__control">

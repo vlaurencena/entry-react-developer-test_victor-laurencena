@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Link from "react-router-dom/Link";
-
-//components 
 
 class ProductsListItem extends Component {
 
     render() {
-        //console.log(this.props.price);
         return (
             <div className="box-shadow product-item-container">
                 <Link to={`${this.props.category}/${this.props.id}`}>
-                    <div className="product-item-container__image" style={{ backgroundImage: 'url(' + this.props.image + ')' }}>
+                    <div className="product-item-container__image" style={{ backgroundImage: "url(" + this.props.image + ")" }}>
                         <span className="product-item-container__out-of-stock">{!this.props.inStock && "OUT OF STOCK"}</span>
                     </div>
                     <div className="product-item-container__name">{this.props.name}</div>

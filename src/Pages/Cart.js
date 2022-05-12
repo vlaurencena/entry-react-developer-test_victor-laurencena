@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 //components 
 import CartList from "../components/CartList";
@@ -13,7 +13,7 @@ class Cart extends Component {
         return (
             <div className="cart-page-container max-width-1240">
                 <div className="cart-heading">CART</div>
-                {this.context.cart.length > 0 ? <div><CartList /><CartSummary /></div> : <div>empty∆</div>}
+                {this.context.cart.length > 0 ? <div><CartList /><CartSummary /></div> : <div>Your cart is empty.</div>}
 
             </div>
         );

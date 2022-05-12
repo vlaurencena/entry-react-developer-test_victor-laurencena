@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 //context
 import CartContext from "../context/CartContext";
@@ -13,11 +13,10 @@ import ProductPrice from "./ProductPrice";
 class CartListItem extends Component {
     static contextType = CartContext;
     render() {
-        //console.log(this.props.item.prices);
         let price = this.props.item.prices.find(price => price.currency.label === this.context.currentCurrencyLabel);
         return (
             <div className="cart-list-item">
-                <div>
+                <div className="cart-list-info">
                     <ProductBrandAndName
                         brand={this.props.item.brand}
                         name={this.props.item.name}

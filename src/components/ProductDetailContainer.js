@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
+import React, { Component } from "react";
+import { graphql } from "react-apollo";
 
 //components 
 import ProductDetailGallery from "./ProductDetailGallery";
@@ -15,7 +15,6 @@ class ProductDetailContainer extends Component {
     static contextType = CartContext;
     renderProductDetail() {
         let data = this.props.data;
-        //console.log(data.product);
         if (data.loading) {
             return (<div>Loading Links...</div>)
         } else {
@@ -30,7 +29,6 @@ class ProductDetailContainer extends Component {
                         name={data.product.name}
                         description={data.product.description}
                         inStock={data.product.inStock}
-                        // prices={data.product.prices.find(price => price.currency.label === this.context.currentCurrencyLabel)}
                         prices={data.product.prices}
                         attributes={data.product.attributes}
                         gallery={data.product.gallery}
@@ -40,9 +38,8 @@ class ProductDetailContainer extends Component {
         }
     }
     render() {
-        //console.log(this.context.currentCurrencyLabel);
         return (
-            <div className="">
+            <div>
                 {this.renderProductDetail()}
             </div>
         );
