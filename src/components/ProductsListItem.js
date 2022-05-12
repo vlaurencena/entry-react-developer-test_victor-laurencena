@@ -6,7 +6,7 @@ import Link from "react-router-dom/Link";
 class ProductsListItem extends Component {
 
     render() {
-        //console.log(this.props.inStock);
+        //console.log(this.props.price);
         return (
             <div className="box-shadow product-item-container">
                 <Link to={`${this.props.category}/${this.props.id}`}>
@@ -15,8 +15,8 @@ class ProductsListItem extends Component {
                     </div>
                     <div className="product-item-container__name">{this.props.name}</div>
                     <div className="product-item-container__price">
-                        <span>{this.props.prices.currency.symbol}</span>
-                        <span>{this.props.prices.amount}</span>
+                        <span>{this.props.price.currency.symbol}</span>
+                        <span>{this.props.price.amount}</span>
                     </div>
                 </Link>
             </div >

@@ -29,16 +29,16 @@ class NavBar extends Component {
     }
     render() {
         return (
-            <div className="nav-bar-container">
-                <div className="nav-bar-container__links">
-                    <ul>
-                        {this.displayCategoriesLinks()}
-                    </ul>
+            <div className="nav-bar max-width-1240">
+                <div className="nav-bar__links">
+                    {this.displayCategoriesLinks()}
                 </div>
-                <CurrencySelector
-                />
-                <CartWidget
-                />
+                <div className="nav-bar__currency-and-widget">
+                    <CurrencySelector
+                    />
+                    <CartWidget
+                    />
+                </div>
             </div>
         );
     }

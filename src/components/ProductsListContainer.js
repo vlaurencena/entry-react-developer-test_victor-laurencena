@@ -21,7 +21,7 @@ class ProductsListContainer extends Component {
 
     getProductsByCategory() {
         let data = this.props.data;
-        // console.log(data);
+        //console.log(data);
         if (data.loading) {
             return (<div>Loading products...</div>)
         } else {
@@ -33,7 +33,7 @@ class ProductsListContainer extends Component {
                         category={product.category}
                         image={product.gallery[0]}
                         name={product.name}
-                        prices={product.prices.find(price => price.currency.label === this.context.currentCurrencyLabel)}
+                        price={product.prices.find(price => price.currency.label === this.context.currentCurrencyLabel)}
                         inStock={product.inStock}
                     />
                 );

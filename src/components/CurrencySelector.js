@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 
-//components 
 
 //context
 import CartContext from "../context/CartContext";
@@ -31,7 +30,7 @@ class CurrencySelector extends Component {
                 return (
                     <div
                         onClick={this.handleClick}
-                        selected={this.context.currentCurrency === currency.label}
+                        selected={this.context.currentCurrencyLabel === currency.label}
                         className={`currency-item ${this.context.currentCurrencyLabel === currency.label ? "background-gray" : "background-white"}`}
                         key={currency.label}
                         id={currency.label}
@@ -64,9 +63,12 @@ class CurrencySelector extends Component {
     }
 
     render() {
+        //console.log(this.context.currentCurrencySymbol);
         return (
-            <div className="currency-selector-container" onMouseEnter={this.handleOnMouseEnter} onMouseLeave={this.handleOnMouseLeave}>
-                <span className="money-icon">{this.context.currentCurrencySymbol}</span>
+            <div className="currency-selector" onMouseEnter={this.handleOnMouseEnter} onMouseLeave={this.handleOnMouseLeave}>
+                <span className="money-icon">{this.context.currentCurrencySymbol}<span className={`material-symbols-outlined currency-selector__expand-more ${this.state.hover ? "rotate-180" : ""}`}>
+                    expand_more
+                </span></span>
                 <div className={`currencies-list box-shadow ${this.state.hover ? "display-flex" : "display-none"}`}>
                     {this.displayCurrencies()}
                 </div>

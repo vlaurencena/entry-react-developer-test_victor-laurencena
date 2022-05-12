@@ -18,6 +18,7 @@ import NavBar from "./components/NavBar";
 import Category from "./pages/Category";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
+import Footer from "./components/Footer";
 
 // apollo client setup
 const client = new ApolloClient({
@@ -45,6 +46,7 @@ class App extends Component {
                 <Redirect to="/all" />
               </Route>
             </Switch>
+            <Footer />
           </ApolloProvider>
         </CartProvider>
       </BrowserRouter>

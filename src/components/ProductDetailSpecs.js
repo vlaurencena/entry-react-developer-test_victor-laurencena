@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 
 //components
+import ProductBrandAndName from "./ProductBrandAndName";
 import ProductAttributes from "./ProductAttributes";
 import AddToCartButton from "./AddToCartButton";
+import ProductPrice from "./ProductPrice";
+import OutOfStockButton from "./OutOfStockButton";
 
 //context
 import CartContext from "../context/CartContext";
+
 
 class ProductDetailSpecs extends Component {
     static contextType = CartContext;
@@ -13,6 +17,7 @@ class ProductDetailSpecs extends Component {
         super(props);
         this.handleSelection = this.handleSelection.bind(this);
         this.handleAddToCart = this.handleAddToCart.bind(this);
+        this.createMarkup = this.createMarkup.bind(this);
     }
 
     handleSelection(e) {
@@ -45,24 +50,28 @@ class ProductDetailSpecs extends Component {
         }
     }
 
-
+    createMarkup() {
+        return { __html: this.props.description };
+    }
 
     render() {
-        //console.log(this.props.attributes);
-        //console.log(this.context.cart);
-
+        let price = this.props.prices.find(price => price.currency.label === this.context.currentCurrencyLabel);
         return (
             <div>
-                <div className="product-detail-specs__brand">{this.props.brand}</div>
-                <div className="product-detail-specs__name">{this.props.name}</div>
+                <ProductBrandAndName
+                    brand={this.props.brand}
+                    name={this.props.name}
+                />
                 <ProductAttributes
                     attributes={this.props.attributes}
                     handleSelection={this.handleSelection}
                     selectedAttributes={this.state}
                 />
-                <div className="product-detail-specs__price">Price</div>
-                <div className="product-detail-specs__amount">{this.props.prices.currency.symbol}{this.props.prices.amount}</div>
-                <AddToCartButton
+                <ProductPrice
+                    symbol={price.currency.symbol}
+                    amount={price.amount}
+                />
+                {this.props.inStock ? <AddToCartButton
                     currentProduct={{
                         id: this.props.id,
                         brand: this.props.brand,
@@ -70,23 +79,16 @@ class ProductDetailSpecs extends Component {
                         prices: this.props.prices,
                         attributes: this.props.attributes,
                         gallery: this.props.gallery,
-                        selectedAttributes: this.state
+                        selectedAttributes: this.state,
+                        inStock: this.props.inStock
                     }}
-                />
-                <div>{this.props.description}</div>
+                /> :
+                <OutOfStockButton />
+                }
+                <div className="product-description" dangerouslySetInnerHTML={this.createMarkup()} />
             </div>
         );
     }
 }
 
 export default ProductDetailSpecs;
-
-
-// id={data.product.id}
-// brand={data.product.brand}
-// name={data.product.name}
-
-// description={data.product.description}
-// inStock={data.product.inStock}
-// prices={data.product.prices}
-// attributes={data.product.attributes}

@@ -14,7 +14,7 @@ class ProductAttributes extends Component {
     render() {
 
         return (
-            <div>
+            <div className="product-attributes">
                 {this.props.attributes.map(attribute => (
                     <div key={attribute.name}><div className="product-detail-specs__attribute-name">{attribute.name}:</div>
                         <div id={attribute.id} className="product-detail-specs__attributes-list">

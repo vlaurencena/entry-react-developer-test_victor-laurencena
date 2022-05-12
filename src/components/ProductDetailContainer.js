@@ -20,7 +20,7 @@ class ProductDetailContainer extends Component {
             return (<div>Loading Links...</div>)
         } else {
             return (
-                <div className="product-detail-container">
+                <div className="product-detail-container max-width-1240">
                     <ProductDetailGallery
                         gallery={data.product.gallery}
                     />
@@ -30,7 +30,8 @@ class ProductDetailContainer extends Component {
                         name={data.product.name}
                         description={data.product.description}
                         inStock={data.product.inStock}
-                        prices={data.product.prices.find(price => price.currency.label === this.context.currentCurrencyLabel)}
+                        // prices={data.product.prices.find(price => price.currency.label === this.context.currentCurrencyLabel)}
+                        prices={data.product.prices}
                         attributes={data.product.attributes}
                         gallery={data.product.gallery}
                     />
