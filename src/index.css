@@ -259,6 +259,7 @@ a.nav-bar__links--selected {
 .gallery-container__secondary-images-container {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 
 .gallery-container__secondary-image {

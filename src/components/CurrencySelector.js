@@ -21,6 +21,7 @@ class CurrencySelector extends Component {
 
     displayCurrencies() {
         let data = this.props.data;
+        let space = " ";
         if (data.loading) {
             return (<div>Loading Links...</div>)
         } else {
@@ -34,7 +35,7 @@ class CurrencySelector extends Component {
                         id={currency.label}
                         title={currency.symbol}
                     >
-                        {currency.symbol}
+                        {currency.symbol}{space}
                         {currency.label}
                     </div >
                 );
