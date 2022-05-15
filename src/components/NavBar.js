@@ -33,6 +33,7 @@ class NavBar extends Component {
                 <div className="nav-bar__links">
                     {this.displayCategoriesLinks()}
                 </div>
+                <img src="/media/logo.svg" alt="Logo"/>
                 <div className="nav-bar__currency-and-widget">
                     <CurrencySelector
                     />

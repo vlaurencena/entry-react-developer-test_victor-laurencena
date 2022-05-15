@@ -46,12 +46,8 @@ class CartListItemCarousel extends Component {
             >
                 {!this.props.onWidget &&
                     <div className="cart-list-item-carrousel__control">
-                        <button value="plus" onClick={this.handleClick} ><span className="material-symbols-outlined">
-                            chevron_right
-                        </span></button>
-                        <button value="minus" onClick={this.handleClick} ><span className="material-symbols-outlined">
-                            chevron_left
-                        </span></button>
+                        <button value="plus" onClick={this.handleClick} ><img src="/media/next-icon.svg" alt="Next icon"/></button>
+                        <button value="minus" onClick={this.handleClick} ><img src="/media/before-icon.svg" alt="Before icon"/></button>
                     </div>
                 }
             </div >

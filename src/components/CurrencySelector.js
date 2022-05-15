@@ -62,9 +62,8 @@ class CurrencySelector extends Component {
     render() {
         return (
             <div className="currency-selector" onMouseEnter={this.handleOnMouseEnter} onMouseLeave={this.handleOnMouseLeave}>
-                <span className="money-icon">{this.context.currentCurrencySymbol}<span className={`material-symbols-outlined currency-selector__expand-more ${this.state.hover ? "rotate-180" : ""}`}>
-                    expand_more
-                </span></span>
+                <div className="money-icon">{this.context.currentCurrencySymbol}</div>
+                <img className={`currency-selector__expand-more ${this.state.hover ? "rotate-180" : ""}`} src="/media/expand-icon.svg" alt="Logo" />
                 <div className={`currencies-list box-shadow ${this.state.hover ? "display-flex" : "display-none"}`}>
                     {this.displayCurrencies()}
                 </div>

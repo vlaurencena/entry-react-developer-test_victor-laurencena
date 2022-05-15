@@ -35,9 +35,7 @@ class CartWidget extends Component {
         return (
             <div className="cart-widget" onMouseEnter={this.handleOnMouseEnter} onMouseLeave={this.handleOnMouseLeave}>
                 <a href="/cart">
-                    <span className="material-symbols-outlined">
-                        shopping_cart
-                    </span>
+                <img src="/media/cart-icon.svg" alt="Cart icon"/>
                     {this.context.getCartTotalItems() && <span className="cart-widget-number">{this.context.getCartTotalItems()}</span>}
                 </a>
                 {this.state.hover && this.context.cart.length !== 0 && <CartWidgetHover />}

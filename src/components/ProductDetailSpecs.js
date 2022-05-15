@@ -68,7 +68,7 @@ class ProductDetailSpecs extends Component {
                 />
                 <ProductPrice
                     symbol={price.currency.symbol}
-                    amount={price.amount}
+                    amount={price.amount.toFixed(2)}
                 />
                 {this.props.inStock ? <AddToCartButton
                     currentProduct={{

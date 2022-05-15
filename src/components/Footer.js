@@ -14,7 +14,7 @@ class Footer extends Component {
                     vlaurencena
                 </p>
                 <a href="https://github.com/vlaurencena" target="_blank">
-                    <img src="/media/github-icon.png" /></a>
+                    <img src="/media/github-icon.png" alt="GitHub icon" /></a>
             </div>
 
         );

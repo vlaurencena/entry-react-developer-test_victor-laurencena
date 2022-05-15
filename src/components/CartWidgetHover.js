@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 
-
 //context
 import CartContext from "../context/CartContext";
-
-//queries
 
 //componentes
 import CartList from "./CartList";
