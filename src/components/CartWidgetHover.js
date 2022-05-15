@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 //context
@@ -37,4 +36,4 @@ class CartWidgetHover extends Component {
     }
 }
 
-export default withRouter(CartWidgetHover);
+export default CartWidgetHover;
