@@ -411,6 +411,7 @@ a.nav-bar__links--selected {
   justify-content: space-between;
   text-align: center;
   height: 100%;
+  width: auto;
 }
 
 .cart-list-item__right-side {
