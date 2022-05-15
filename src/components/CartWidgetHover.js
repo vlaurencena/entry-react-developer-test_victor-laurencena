@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 //context
 import CartContext from "../context/CartContext";
@@ -9,6 +11,7 @@ import Button from "./Button";
 
 class CartWidgetHover extends Component {
     static contextType = CartContext;
+
     render() {
         return (
             <div className="cart-widget-hover box-shadow">
@@ -20,11 +23,9 @@ class CartWidgetHover extends Component {
                     <div>{this.context.currentCurrencySymbol}{this.context.calculateTaxes().totalIncludingTaxes}</div>
                 </div>
                 <div className="cart-widget-hover__buttons">
-                    <Button
-                        text="VIEW BAG"
-                        color="white"
-                        onWidget={true}
-                    />
+                    <NavLink to={`/cart`} className="button-styled-link button button--white button-on-widget">
+                        VIEW BAG
+                    </NavLink>
                     <Button
                         text="CHECK OUT"
                         color="green"
@@ -36,4 +37,4 @@ class CartWidgetHover extends Component {
     }
 }
 
-export default CartWidgetHover;
+export default withRouter(CartWidgetHover);

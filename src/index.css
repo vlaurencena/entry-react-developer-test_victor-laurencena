@@ -668,6 +668,12 @@ height: 43px; */
   color: #000000;
 }
 
+.button-styled-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .button--black {
   background-color: #1d1f22;
   color: #ffffff;
