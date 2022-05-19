@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import Link from "react-router-dom/Link";
 
+//context
+import CartContext from "../context/CartContext";
+
 class ProductsListItem extends Component {
+    static contextType = CartContext;
     constructor(props) {
         super(props);
         this.state = {
@@ -9,6 +13,7 @@ class ProductsListItem extends Component {
         }
         this.handleOnMouseEnter = this.handleOnMouseEnter.bind(this);
         this.handleOnMouseLeave = this.handleOnMouseLeave.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     handleOnMouseEnter() {
@@ -21,6 +26,28 @@ class ProductsListItem extends Component {
         this.setState({
             hover: false
         });
+    }
+
+    handleClick() {
+        let selectedAttributes = {};
+        for (let i = 0; i < this.props.attributes.length; i++) {
+            selectedAttributes[this.props.attributes[i].name] = this.props.attributes[i].items[0].id;
+        }
+        const product = {
+            id: this.props.id,
+            brand: this.props.brand,
+            name: this.props.name,
+            prices: this.props.prices,
+            attributes: this.props.attributes,
+            gallery: this.props.gallery,
+            selectedAttributes: selectedAttributes,
+            inStock: this.props.inStock
+        };
+        if (this.context.checkIsInCart(product)[0]) {
+            alert("This product is already in your cart")
+        } else {
+            this.context.addToCart(product);
+        }
     }
 
     render() {
@@ -37,6 +64,7 @@ class ProductsListItem extends Component {
                         <span>{this.props.price.amount}</span>
                     </div>
                 </Link>
+                {this.props.inStock && this.state.hover && <button onClick={this.handleClick} className="add-to-cart-icon"><img src="/media/add-to-cart-icon.svg" alt="Add to cart icon" /></button>}
             </div >
         );
     }

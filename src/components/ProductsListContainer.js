@@ -33,8 +33,11 @@ class ProductsListContainer extends Component {
                         image={product.gallery[0]}
                         name={product.name}
                         brand={product.brand}
+                        prices={product.prices}
                         price={product.prices.find(price => price.currency.label === this.context.currentCurrencyLabel)}
                         inStock={product.inStock}
+                        attributes={product.attributes}
+                        gallery={product.gallery}
                     />
                 );
             })

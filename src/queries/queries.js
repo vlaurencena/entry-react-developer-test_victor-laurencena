@@ -27,6 +27,16 @@ query GetProductsByCategory($title: String!) {
           amount
         }
         inStock
+        attributes {
+          id
+          name
+          type
+          items {
+            displayValue
+            value
+            id
+          }
+        }
       }
     }
   }

@@ -70,6 +70,10 @@ h6 {
   isolation: isolate;
 }
 
+button {
+  background-color: transparent;
+  border: 0;
+}
 /* FONTS */
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap");
 
@@ -218,11 +222,13 @@ a.nav-bar__links--selected {
   flex-direction: column;
   padding: 15px;
   justify-content: space-between;
+  position: relative;
 }
 
 .product-item-container a {
   text-decoration: none;
   color: inherit;
+
 }
 
 .product-item-container__image {
@@ -252,6 +258,15 @@ a.nav-bar__links--selected {
   font-weight: 500;
 }
 
+.add-to-cart-icon {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  z-index: 1;
+  bottom: 72px;
+  right: 31px;
+  cursor: pointer;
+}
 /* PRODUCT DETAIL CONTAINER */
 .product-detail-container {
   display: flex;
