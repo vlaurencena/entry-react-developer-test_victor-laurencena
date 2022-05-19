@@ -10,7 +10,7 @@ class ProductsListItem extends Component {
                     <div className="product-item-container__image" style={{ backgroundImage: "url(" + this.props.image + ")" }}>
                         <span className="product-item-container__out-of-stock">{!this.props.inStock && "OUT OF STOCK"}</span>
                     </div>
-                    <div className="product-item-container__name">{this.props.name}</div>
+                    <div className="product-item-container__name">{this.props.brand} {this.props.name}</div>
                     <div className="product-item-container__price">
                         <span>{this.props.price.currency.symbol}</span>
                         <span>{this.props.price.amount}</span>

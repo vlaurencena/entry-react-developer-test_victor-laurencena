@@ -32,6 +32,7 @@ class ProductsListContainer extends Component {
                         category={product.category}
                         image={product.gallery[0]}
                         name={product.name}
+                        brand={product.brand}
                         price={product.prices.find(price => price.currency.label === this.context.currentCurrencyLabel)}
                         inStock={product.inStock}
                     />

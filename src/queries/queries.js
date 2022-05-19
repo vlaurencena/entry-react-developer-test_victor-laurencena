@@ -18,6 +18,7 @@ query GetProductsByCategory($title: String!) {
         category
         gallery
         name
+        brand
         prices{
           currency {
             label
