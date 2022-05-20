@@ -131,16 +131,21 @@ body,
 
 .nav-bar__links {
   display: flex;
-  gap: 32px;
+  height: 100%;
 }
 
 .nav-bar__links a {
   text-decoration: none;
   color: #000000;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
 }
 
 a.nav-bar__links--selected {
   color: #5ece7b;
+  border-bottom: 2px solid #5ece7b;
 }
 
 .nav-bar__currency-and-widget {
