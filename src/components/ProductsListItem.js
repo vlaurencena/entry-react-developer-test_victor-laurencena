@@ -53,7 +53,7 @@ class ProductsListItem extends Component {
     render() {
         return (
             <div onMouseEnter={this.handleOnMouseEnter} onMouseLeave={this.handleOnMouseLeave}
-                className={"product-item-container " + (this.state.hover ? "box-shadow" : "")}>
+                className={"product-item-container " + (this.state.hover && this.props.inStock ? "box-shadow" : "") + (!this.props.inStock ? "out-of-stock-opacity" : "")}>
                 <Link to={`${this.props.category}/${this.props.id}`}>
                     <div className="product-item-container__image" style={{ backgroundImage: "url(" + this.props.image + ")" }}>
                         <span className="product-item-container__out-of-stock">{!this.props.inStock && "OUT OF STOCK"}</span>

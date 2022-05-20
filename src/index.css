@@ -267,6 +267,10 @@ a.nav-bar__links--selected {
   right: 31px;
   cursor: pointer;
 }
+
+.out-of-stock-opacity {
+  opacity: .5;
+}
 /* PRODUCT DETAIL CONTAINER */
 .product-detail-container {
   display: flex;
