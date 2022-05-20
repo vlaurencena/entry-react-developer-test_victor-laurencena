@@ -12,10 +12,10 @@ class CurrencySelector extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            hover: false
+            currencyList: true
         };
         this.handleClick = this.handleClick.bind(this)
-        this.handleOnMouseEnter = this.handleOnMouseEnter.bind(this)
+        this.handleClickIn = this.handleClickIn.bind(this)
         this.handleOnMouseLeave = this.handleOnMouseLeave.bind(this)
     }
 
@@ -47,7 +47,7 @@ class CurrencySelector extends Component {
         this.context.updateCurrentCurrency(e.currentTarget.id, e.currentTarget.title);
     }
 
-    handleOnMouseEnter() {
+    handleClickIn() {
         this.setState({
             hover: true
         });
@@ -61,7 +61,7 @@ class CurrencySelector extends Component {
 
     render() {
         return (
-            <div className="currency-selector" onMouseEnter={this.handleOnMouseEnter} onMouseLeave={this.handleOnMouseLeave}>
+            <div className="currency-selector" onClick={this.handleClickIn} onMouseLeave={this.handleOnMouseLeave}>
                 <div className="money-icon">{this.context.currentCurrencySymbol}</div>
                 <img className={`currency-selector__expand-more ${this.state.hover ? "rotate-180" : ""}`} src="/media/expand-icon.svg" alt="Logo" />
                 <div className={`currencies-list box-shadow ${this.state.hover ? "display-flex" : "display-none"}`}>
