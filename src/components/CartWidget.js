@@ -9,12 +9,6 @@ import CartContext from "../context/CartContext";
 class CartWidget extends Component {
     static contextType = CartContext;
 
-    componentDidUpdate() {
-        if (this.context.cart.length === 0 && this.context.wholePageBackground) {
-            this.context.hideWholePageBackground();
-        }
-    }
-
     render() {
         return (
             <div className="cart-widget">

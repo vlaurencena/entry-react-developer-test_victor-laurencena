@@ -52,7 +52,11 @@ class NavBar extends Component {
                     showCartWidget: false
                 });
         }
+        if (this.context.cart.length === 0 && this.context.wholePageBackground) {
+            this.state.showCurrencyList === false && this.context.hideWholePageBackground();
+        }
     }
+
 
     displayCategoriesLinks() {
         let data = this.props.data;
