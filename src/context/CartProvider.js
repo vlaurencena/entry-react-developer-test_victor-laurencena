@@ -163,7 +163,20 @@ export default class MyProvider extends Component {
     }
 
     sortCart(x, y) {
-        return x.id.localeCompare(y.id);
+        if (x.id === y.id) {
+            let xString = "";
+            for (const [key, value] of Object.entries(x.selectedAttributes)) {
+                xString += xString + `${key}: ${value}`;
+            }
+            let yString = "";
+            for (const [key, value] of Object.entries(y.selectedAttributes)) {
+                yString += yString + `${key}: ${value}`;
+            }
+            return xString.localeCompare(yString);
+        }
+        else {
+            return x.id.localeCompare(y.id);
+        }
     }
 
     render() {
