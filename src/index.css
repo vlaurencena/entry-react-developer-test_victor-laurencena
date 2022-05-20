@@ -597,8 +597,11 @@ a.nav-bar__links--selected {
   right: 0;
   background-color: #ffffff;
   max-width: 325px;
+  max-height: 677px;
   overflow: hidden;
   padding: 32px 16px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .cart-widget-hover .product-detail-specs__attributes-list > div {
