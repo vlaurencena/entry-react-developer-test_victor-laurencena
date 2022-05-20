@@ -11,34 +11,32 @@ class CartWidget extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            hover: false
+            show: false
         };
-        this.handleOnMouseEnter = this.handleOnMouseEnter.bind(this);
-        this.handleOnMouseLeave = this.handleOnMouseLeave.bind(this);
+        this.handleClickIn = this.handleClickIn.bind(this);
+        this.handleClickOut = this.handleClickOut.bind(this);
     }
 
-    handleOnMouseEnter() {
-        if (this.context.cart.length > 0) {
+    handleClickIn() {
+        if (this.context.cart.length > 0 && this.state.show === false) {
             this.setState({
-                hover: true
+                show: true
             });
         }
     }
 
-    handleOnMouseLeave() {
+    handleClickOut() {
         this.setState({
-            hover: false
+            show: false
         });
     }
 
     render() {
         return (
-            <div className="cart-widget" onMouseEnter={this.handleOnMouseEnter} onMouseLeave={this.handleOnMouseLeave}>
-                <a href="/cart">
-                <img src="/media/cart-icon.svg" alt="Cart icon"/>
-                    {this.context.getCartTotalItems() && <span className="cart-widget-number">{this.context.getCartTotalItems()}</span>}
-                </a>
-                {this.state.hover && this.context.cart.length !== 0 && <CartWidgetHover />}
+            <div className="cart-widget" onClick={this.handleClickIn} onMouseLeave={this.handleOnMouseLeave}>
+                <img src="/media/cart-icon.svg" alt="Cart icon" />
+                {this.context.getCartTotalItems() && <span className="cart-widget-number">{this.context.getCartTotalItems()}</span>}
+                {this.state.show && this.context.cart.length !== 0 && <CartWidgetHover handleClickOut={this.handleClickOut} />}
             </div>
         );
     }
