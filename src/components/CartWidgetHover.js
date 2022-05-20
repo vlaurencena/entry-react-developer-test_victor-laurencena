@@ -10,12 +10,9 @@ import Button from "./Button";
 
 class CartWidgetHover extends Component {
     static contextType = CartContext;
-
     render() {
         return (
-            <div>
-                <div onClick={this.props.handleClickOut} className="click-event-listener"></div>
-                <div className="cart-widget-hover box-shadow">
+                <div className="cart-widget-hover box-shadow z-index-2">
                     <CartList
                         onWidget={true}
                     />
@@ -34,7 +31,6 @@ class CartWidgetHover extends Component {
                         />
                     </div>
                 </div>
-            </div>
         );
     }
 }

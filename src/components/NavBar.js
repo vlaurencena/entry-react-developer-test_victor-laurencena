@@ -5,6 +5,7 @@ import { graphql } from "react-apollo";
 import NavBarLink from "./NavBarLink";
 import CurrencySelector from "./CurrencySelector";
 import CartWidget from "./CartWidget";
+import WholePageBackground from "./WholePageBackground";
 
 //queries
 import { getCategoriesQuery } from "../queries/queries";
@@ -29,18 +30,18 @@ class NavBar extends Component {
 
     render() {
         return (
-            <div className="nav-bar max-width-1240">
-                <div className="nav-bar__links">
-                    {this.displayCategoriesLinks()}
+                <div className="nav-bar max-width-1240">
+                    <div className="nav-bar__links">
+                        {this.displayCategoriesLinks()}
+                    </div>
+                    <img src="/media/logo.svg" alt="Logo" />
+                    <div className="nav-bar__currency-and-widget">
+                        <CurrencySelector
+                        />
+                        <CartWidget
+                        />
+                    </div>
                 </div>
-                <img src="/media/logo.svg" alt="Logo"/>
-                <div className="nav-bar__currency-and-widget">
-                    <CurrencySelector
-                    />
-                    <CartWidget
-                    />
-                </div>
-            </div>
         );
     }
 }

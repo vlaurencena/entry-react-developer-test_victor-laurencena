@@ -8,7 +8,9 @@ export default class MyProvider extends Component {
             currentCurrencyLabel: "USD",
             currentCurrencySymbol: "$",
             cart: [],
-            taxes: 21 / 100
+            taxes: 21 / 100,
+            wholePageBackground: false,
+            backgroundType: "transparent"
         };
         this.updateCurrentCurrency = this.updateCurrentCurrency.bind(this);
         this.updateLocalStorage = this.updateLocalStorage.bind(this);
@@ -20,6 +22,21 @@ export default class MyProvider extends Component {
         this.getCartTotalItems = this.getCartTotalItems.bind(this);
         this.sortCart = this.sortCart.bind(this);
         this.calculateTaxes = this.calculateTaxes.bind(this);
+        this.displayWholePageBackground = this.displayWholePageBackground.bind(this);
+        this.hideWholePageBackground = this.hideWholePageBackground.bind(this);
+    }
+
+    displayWholePageBackground(type) {
+        this.setState({
+            wholePageBackground: true,
+            backgroundType: type
+        });
+    }
+
+    hideWholePageBackground() {
+        this.setState({
+            wholePageBackground: false,
+        });
     }
 
     updateLocalStorage(key, value) {
@@ -187,12 +204,15 @@ export default class MyProvider extends Component {
                     currentCurrencySymbol: this.state.currentCurrencySymbol,
                     cart: this.state.cart,
                     taxes: this.state.taxes,
+                    wholePageBackground: this.state.wholePageBackground,
                     updateCurrentCurrency: this.updateCurrentCurrency,
                     addToCart: this.addToCart,
                     checkIsInCart: this.checkIsInCart,
                     updateProductQuantity: this.updateProductQuantity,
                     getCartTotalItems: this.getCartTotalItems,
                     calculateTaxes: this.calculateTaxes,
+                    displayWholePageBackground: this.displayWholePageBackground,
+                    hideWholePageBackground: this.hideWholePageBackground,
                 }}
             >
                 {this.props.children}
