@@ -28,12 +28,18 @@ class NavBar extends Component {
 
     handleClickIn(e) {
         if (e.target.id === "clicked-cart-icon" && this.context.cart.length > 0) {
-            console.log("tere");
             this.setState({
                 showCurrencyList: false,
                 showCartWidget: !this.state.showCartWidget
             });
             !this.context.wholePageBackground && this.context.displayWholePageBackground("gray");
+            this.context.wholePageBackground && this.context.hideWholePageBackground();
+        } else if (e.target.parentNode.id === "clicked-currency-selector") {
+            this.setState({
+                showCurrencyList: !this.state.showCurrencyList,
+                showCartWidget: false
+            });
+            !this.context.wholePageBackground && this.context.displayWholePageBackground("transparent");
             this.context.wholePageBackground && this.context.hideWholePageBackground();
         }
     }
@@ -74,7 +80,8 @@ class NavBar extends Component {
                 <img src="/media/logo.svg" alt="Logo" />
                 <div className="nav-bar__currency-and-widget">
                     <CurrencySelector
-
+                        handleClickIn={this.handleClickIn}
+                        showCurrencyList={this.state.showCurrencyList}
                     />
                     <CartWidget
                         handleClickIn={this.handleClickIn}

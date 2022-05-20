@@ -11,12 +11,8 @@ class CurrencySelector extends Component {
     static contextType = CartContext;
     constructor(props) {
         super(props);
-        this.state = {
-            currencyList: true
-        };
         this.handleClick = this.handleClick.bind(this)
-        this.handleClickIn = this.handleClickIn.bind(this)
-        this.handleOnMouseLeave = this.handleOnMouseLeave.bind(this)
+
     }
 
     displayCurrencies() {
@@ -47,24 +43,14 @@ class CurrencySelector extends Component {
         this.context.updateCurrentCurrency(e.currentTarget.id, e.currentTarget.title);
     }
 
-    handleClickIn() {
-        this.setState({
-            hover: true
-        });
-    }
-
-    handleOnMouseLeave() {
-        this.setState({
-            hover: false
-        });
-    }
-
     render() {
         return (
-            <div className="currency-selector" onClick={this.handleClickIn} onMouseLeave={this.handleOnMouseLeave}>
-                <div className="money-icon">{this.context.currentCurrencySymbol}</div>
-                <img className={`currency-selector__expand-more ${this.state.hover ? "rotate-180" : ""}`} src="/media/expand-icon.svg" alt="Logo" />
-                <div className={`currencies-list box-shadow ${this.state.hover ? "display-flex" : "display-none"}`}>
+            <div className="currency-selector">
+                <div id="clicked-currency-selector" onClick={this.props.handleClickIn} className="display-flex">
+                    <div className="money-icon">{this.context.currentCurrencySymbol}</div>
+                    <img className={`currency-selector__expand-more ${this.props.showCurrencyList ? "rotate-180" : ""}`} src="/media/expand-icon.svg" alt="Logo" />
+                </div>
+                <div className={`z-index-2 currencies-list box-shadow ${this.props.showCurrencyList ? "display-flex" : "display-none"}`}>
                     {this.displayCurrencies()}
                 </div>
             </div>

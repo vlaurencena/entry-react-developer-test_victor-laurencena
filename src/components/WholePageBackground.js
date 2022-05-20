@@ -9,7 +9,7 @@ class WholePageBackground extends Component {
         return (
             <div>
                 {this.context.wholePageBackground && <div
-                    className={"whole-page-background " + (this.context.backgroundType === "transparent" ? "" : "whole-page-background__gray")}
+                    className={"whole-page-background " + (this.context.backgroundType === "transparent" ? "whole-page-background__transparent" : "whole-page-background__gray")}
                     onClick={this.context.hideWholePageBackground}
                 ></div>}
             </div>

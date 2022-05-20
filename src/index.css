@@ -754,6 +754,10 @@ height: 43px; */
   background-color: #000000;
 }
 
+.whole-page-background__transparent {
+  background-color: transparent;
+}
+
 .z-index-2 {
   z-index: 2;
 }

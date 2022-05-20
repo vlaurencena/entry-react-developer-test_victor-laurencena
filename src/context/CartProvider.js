@@ -205,6 +205,7 @@ export default class MyProvider extends Component {
                     cart: this.state.cart,
                     taxes: this.state.taxes,
                     wholePageBackground: this.state.wholePageBackground,
+                    backgroundType: this.state.backgroundType,
                     updateCurrentCurrency: this.updateCurrentCurrency,
                     addToCart: this.addToCart,
                     checkIsInCart: this.checkIsInCart,
