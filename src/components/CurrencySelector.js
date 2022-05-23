@@ -39,7 +39,7 @@ class CurrencySelector extends Component {
     handleClick(e) {
         this.context.updateCurrentCurrency(e.currentTarget.id, e.currentTarget.title);
     }
-
+    
     render() {
         return (
             <div className="currency-selector">
@@ -47,7 +47,7 @@ class CurrencySelector extends Component {
                     <div className="money-icon">{this.context.currentCurrencySymbol}</div>
                     <img className={`currency-selector__expand-more ${this.props.showCurrencyList ? "rotate-180" : ""}`} src="/media/expand-icon.svg" alt="Logo" />
                 </div>
-                <div className={`z-index-2 currencies-list box-shadow ${this.props.showCurrencyList ? "display-flex" : "display-none"}`}>
+                <div onClick={this.props.handleClickOnCurrencyItem} className={`z-index-2 currencies-list box-shadow ${this.props.showCurrencyList ? "display-flex" : "display-none"}`}>
                     {this.displayCurrencies()}
                 </div>
             </div>

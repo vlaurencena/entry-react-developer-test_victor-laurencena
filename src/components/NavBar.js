@@ -19,8 +19,14 @@ class NavBar extends Component {
             showCartWidget: false
         };
         this.handleClickIn = this.handleClickIn.bind(this);
+        this.handleClickOnCurrencyItem = this.handleClickOnCurrencyItem.bind(this);
     }
 
+    handleClickOnCurrencyItem() {
+        setTimeout(() => this.setState({
+            showCurrencyList: false,
+        }), 100)
+    }
     handleClickIn(e) {
         if (e.target.id === "clicked-cart-icon" && this.context.cart.length > 0) {
             this.setState({
@@ -78,6 +84,7 @@ class NavBar extends Component {
                         <CurrencySelector
                             handleClickIn={this.handleClickIn}
                             showCurrencyList={this.state.showCurrencyList}
+                            handleClickOnCurrencyItem={this.handleClickOnCurrencyItem}
                         />
                         <CartWidget
                             handleClickIn={this.handleClickIn}
