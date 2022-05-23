@@ -87,8 +87,8 @@ export default class MyProvider extends Component {
             const val2 = object2[key];
             const areObjects = this.isObject(val1) && this.isObject(val2);
             if (
-                areObjects && !this.deepEqual(val1, val2) ||
-                !areObjects && val1 !== val2
+                (areObjects && !this.deepEqual(val1, val2)) ||
+                (!areObjects && val1 !== val2)
             ) {
                 return false;
             }
@@ -128,7 +128,7 @@ export default class MyProvider extends Component {
     getCartTotalItems() {
         let total = 0;
         if (this.state.cart.length > 0) {
-            this.state.cart.map(product => {
+            this.state.cart.forEach(product => {
                 total += product.quantity;
             })
             return total;
@@ -137,7 +137,7 @@ export default class MyProvider extends Component {
     getCartTotalAmountWithoutTaxes() {
         let total = 0;
         if (this.state.cart.length > 0) {
-            this.state.cart.map(product => {
+            this.state.cart.forEach(product => {
                 let price = product.prices.find(price => price.currency.label === this.state.currentCurrencyLabel);
                 total += product.quantity * price.amount;
             })
