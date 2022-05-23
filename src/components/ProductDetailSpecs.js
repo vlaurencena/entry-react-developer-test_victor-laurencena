@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Parser from 'html-react-parser';
+import DOMPurify from 'dompurify';
 
 //components
 import ProductBrandAndName from "./ProductBrandAndName";
@@ -17,6 +18,7 @@ class ProductDetailSpecs extends Component {
         super(props);
         this.handleSelection = this.handleSelection.bind(this);
         this.handleAddToCart = this.handleAddToCart.bind(this);
+        this.htmlFrom = this.htmlFrom.bind(this);
     }
 
     handleSelection(e) {
@@ -48,13 +50,20 @@ class ProductDetailSpecs extends Component {
         }
     }
 
+    htmlFrom(htmlString) {
+        const cleanHtmlString = DOMPurify.sanitize(htmlString,
+            { USE_PROFILES: { html: true } });
+        const html = Parser(cleanHtmlString);
+        return html;
+    }
+
     render() {
         let price = this.props.prices.find(price => price.currency.label === this.context.currentCurrencyLabel);
         return (
             <div>
                 <ProductBrandAndName
                     brand={this.props.brand}
-                    name={this.props.name}
+                    name={this.props.name} q
                 />
                 <ProductAttributes
                     attributes={this.props.attributes}
@@ -82,7 +91,7 @@ class ProductDetailSpecs extends Component {
                         color="black"
                     />
                 }
-                <div className="product-description">{Parser(this.props.description)}</div>
+                <div className="product-description">{this.props.description && this.htmlFrom(this.props.description)}</div>
             </div>
         );
     }
