@@ -765,3 +765,7 @@ height: 43px; */
 .z-index-2 {
   z-index: 2;
 }
+
+.nav-bar-whole-page-background .whole-page-background {
+  background-color: transparent;
+}
