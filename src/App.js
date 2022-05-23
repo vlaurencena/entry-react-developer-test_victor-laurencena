@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import { InMemoryCache } from 'apollo-cache-inmemory';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import CartProvider from "./context/CartProvider";
 
@@ -14,8 +15,21 @@ import Cart from "./pages/Cart";
 import Footer from "./components/Footer";
 
 // apollo client setup
+
 const client = new ApolloClient({
   uri: "http://localhost:4000/",
+  cache: new InMemoryCache({
+    // just totally disable caching
+    dataIdFromObject: () => (null),
+  }),
+  watchQuery: {
+    fetchPolicy: 'no-cache',
+    errorPolicy: 'all',
+  },
+  query: {
+    fetchPolicy: 'no-cache',
+    errorPolicy: 'all',
+  },
 });
 
 class App extends Component {
