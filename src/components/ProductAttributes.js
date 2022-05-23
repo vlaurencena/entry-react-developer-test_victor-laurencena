@@ -7,9 +7,7 @@ class ProductAttributes extends Component {
     }
 
     checkIsSelected(attributeName, value) {
-        if (this.props.selectedAttributes) {
-            return this.props.selectedAttributes[attributeName] === value;
-        }
+        return this.props.selectedAttributes && this.props.selectedAttributes[attributeName] === value;
     }
 
     render() {

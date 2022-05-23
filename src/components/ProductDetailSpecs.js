@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-import Parser from 'html-react-parser';
-import DOMPurify from 'dompurify';
-
+import Parser from "html-react-parser";
+import DOMPurify from "dompurify";
 //components
 import ProductBrandAndName from "./ProductBrandAndName";
 import ProductAttributes from "./ProductAttributes";
 import AddToCartButton from "./AddToCartButton";
 import ProductPrice from "./ProductPrice";
 import Button from "./Button";
-
 //context
 import CartContext from "../context/CartContext";
 

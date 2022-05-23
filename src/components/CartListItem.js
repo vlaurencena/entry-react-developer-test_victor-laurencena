@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-
 //context
 import CartContext from "../context/CartContext";
-
 //componentes
 import AddToCartButton from "./AddToCartButton";
 import CartListItemCarousel from "./CartListItemCarousel";

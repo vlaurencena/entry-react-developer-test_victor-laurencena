@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-
 //context
 import CartContext from "../context/CartContext";
-
 //componentes
 import CartList from "./CartList";
 import Button from "./Button";

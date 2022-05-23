@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
-
 //context
 import CartContext from "../context/CartContext";
-
 //queries
 import { getCurrenciesQuery } from "../queries/queries";
 
@@ -12,7 +10,6 @@ class CurrencySelector extends Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this)
-
     }
 
     displayCurrencies() {
@@ -56,7 +53,6 @@ class CurrencySelector extends Component {
             </div>
         )
     }
-
 }
 
 export default graphql(getCurrenciesQuery)(CurrencySelector);

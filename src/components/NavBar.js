@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
-
-//components 
+//components
 import NavBarLink from "./NavBarLink";
 import CurrencySelector from "./CurrencySelector";
 import CartWidget from "./CartWidget";
-
 //queries
 import { getCategoriesQuery } from "../queries/queries";
-
 //context
 import CartContext from "../context/CartContext";
 
@@ -20,10 +17,8 @@ class NavBar extends Component {
             showCurrencyList: false,
             showCartWidget: false
         };
-        // this.handleClick = this.handleClick.bind(this);
         this.handleClickIn = this.handleClickIn.bind(this);
     }
-
 
     handleClickIn(e) {
         if (e.target.id === "clicked-cart-icon" && this.context.cart.length > 0) {
@@ -56,22 +51,17 @@ class NavBar extends Component {
         }
     }
 
-
     displayCategoriesLinks() {
         let data = this.props.data;
         if (data.loading) {
             return (<div>Loading Links...</div>)
-        } else {
-            return data.categories.map(category => {
-                return (
-                    <NavBarLink
-                        key={category.name}
-                        to={category.name}
-                        text={category.name.toUpperCase()}
-                    />
-                );
-            })
         }
+        return data.categories.map(category => <NavBarLink
+            key={category.name}
+            to={category.name}
+            text={category.name.toUpperCase()}
+        />
+        );
     }
 
     render() {

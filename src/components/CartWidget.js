@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-
 //components 
 import CartWidgetHover from "./CartWidgetHover"
-
 //context
 import CartContext from "../context/CartContext";
 

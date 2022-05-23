@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
-
 //components 
 import ProductDetailGallery from "./ProductDetailGallery";
-
 //context
 import CartContext from "../context/CartContext";
-
 //queries
 import { getProductByIdQuery } from "../queries/queries";
 import ProductDetailSpecs from "./ProductDetailSpecs";
