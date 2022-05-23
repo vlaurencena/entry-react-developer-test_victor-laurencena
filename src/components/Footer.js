@@ -8,7 +8,7 @@ class Footer extends Component {
         }
     }
 
-    UNSAFE_componentDidMount() {
+    componentDidMount() {
         this.setState({
             currentYear: new Date().getFullYear()
         })

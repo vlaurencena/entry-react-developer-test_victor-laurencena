@@ -19,17 +19,8 @@ import Footer from "./components/Footer";
 const client = new ApolloClient({
   uri: "http://localhost:4000/",
   cache: new InMemoryCache({
-    // just totally disable caching
     dataIdFromObject: () => (null),
   }),
-  watchQuery: {
-    fetchPolicy: 'no-cache',
-    errorPolicy: 'all',
-  },
-  query: {
-    fetchPolicy: 'no-cache',
-    errorPolicy: 'all',
-  },
 });
 
 class App extends Component {

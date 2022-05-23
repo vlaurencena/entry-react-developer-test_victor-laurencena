@@ -43,7 +43,7 @@ class NavBar extends Component {
         }
     }
 
-    UNSAFE_componentDidUpdate() {
+    componentDidUpdate() {
         if (!this.context.wholePageBackground) {
             if (this.state.showCurrencyList || this.state.showCartWidget)
                 this.setState({

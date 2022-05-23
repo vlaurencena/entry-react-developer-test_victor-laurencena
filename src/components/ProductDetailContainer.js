@@ -17,25 +17,28 @@ class ProductDetailContainer extends Component {
         let data = this.props.data;
         if (data.loading) {
             return (<div>Loading Links...</div>)
-        } else {
-            return (
-                <div className="product-detail-container max-width-1240">
-                    <ProductDetailGallery
-                        gallery={data.product.gallery}
-                    />
-                    <ProductDetailSpecs
-                        id={data.product.id}
-                        brand={data.product.brand}
-                        name={data.product.name}
-                        description={data.product.description}
-                        inStock={data.product.inStock}
-                        prices={data.product.prices}
-                        attributes={data.product.attributes}
-                        gallery={data.product.gallery}
-                    />
-                </div>
-            )
         }
+        if (data.product === null) {
+            return <div>This product doesn't exist</div>
+        }
+        return (
+            <div className="product-detail-container max-width-1240">
+                <ProductDetailGallery
+                    gallery={data.product.gallery}
+                />
+                <ProductDetailSpecs
+                    id={data.product.id}
+                    brand={data.product.brand}
+                    name={data.product.name}
+                    description={data.product.description}
+                    inStock={data.product.inStock}
+                    prices={data.product.prices}
+                    attributes={data.product.attributes}
+                    gallery={data.product.gallery}
+                />
+            </div>
+        )
+
     }
     render() {
         return (

@@ -23,25 +23,28 @@ class ProductsListContainer extends Component {
         let data = this.props.data;
         if (data.loading) {
             return (<div>Loading products...</div>)
-        } else {
-            return data.category.products.map(product => {
-                return (
-                    <ProductsListItem
-                        key={product.id}
-                        id={product.id}
-                        category={product.category}
-                        image={product.gallery[0]}
-                        name={product.name}
-                        brand={product.brand}
-                        prices={product.prices}
-                        price={product.prices.find(price => price.currency.label === this.context.currentCurrencyLabel)}
-                        inStock={product.inStock}
-                        attributes={product.attributes}
-                        gallery={product.gallery}
-                    />
-                );
-            })
         }
+        if(data.category === null) {
+            return (<div>Sorry, this category doesn't exist. Please use the navigation menu to visit one of our existing categories.</div>)
+        }
+        return data.category.products.map(product => {
+            return (
+                <ProductsListItem
+                    key={product.id}
+                    id={product.id}
+                    category={product.category}
+                    image={product.gallery[0]}
+                    name={product.name}
+                    brand={product.brand}
+                    prices={product.prices}
+                    price={product.prices.find(price => price.currency.label === this.context.currentCurrencyLabel)}
+                    inStock={product.inStock}
+                    attributes={product.attributes}
+                    gallery={product.gallery}
+                />
+            );
+        })
+
 
     }
 

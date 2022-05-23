@@ -42,7 +42,7 @@ class ProductDetailSpecs extends Component {
         this.context.addToCart(product);
     }
 
-    UNSAFE_componentDidMount() {
+    componentDidMount() {
         for (let i = 0; i < this.props.attributes.length; i++) {
             this.setState({
                 [this.props.attributes[i].name]: this.props.attributes[i].items[0].id

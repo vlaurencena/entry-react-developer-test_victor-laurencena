@@ -26,9 +26,3 @@ class CartSummary extends Component {
 }
 
 export default CartSummary;
-
-// calculateTaxes() {
-//     const totalWithoutTaxes = this.getCartTotalAmountWithoutTaxes();
-//     const totalIncludingTaxes = this.getCartTotalAmountWithoutTaxes() * this.state.taxes;
-//     return [totalWithoutTaxes, totalIncludingTaxes];
-// }
