@@ -5,7 +5,6 @@ import { graphql } from "react-apollo";
 import NavBarLink from "./NavBarLink";
 import CurrencySelector from "./CurrencySelector";
 import CartWidget from "./CartWidget";
-import WholePageBackground from "./WholePageBackground";
 
 //queries
 import { getCategoriesQuery } from "../queries/queries";
@@ -44,7 +43,7 @@ class NavBar extends Component {
         }
     }
 
-    componentDidUpdate() {
+    UNSAFE_componentDidUpdate() {
         if (!this.context.wholePageBackground) {
             if (this.state.showCurrencyList || this.state.showCartWidget)
                 this.setState({

@@ -8,7 +8,7 @@ class Footer extends Component {
         }
     }
 
-    componentDidMount() {
+    UNSAFE_componentDidMount() {
         this.setState({
             currentYear: new Date().getFullYear()
         })
@@ -20,7 +20,7 @@ class Footer extends Component {
                 <WholePageBackground />
                 <div className="footer">
                     <p>Copyright © {this.state.currentYear} vlaurencena</p>
-                    <a href="https://github.com/vlaurencena" target="_blank">
+                    <a href="https://github.com/vlaurencena" target="_blank" rel="noopener noreferrer">
                         <img src="/media/github-icon.png" alt="GitHub icon" /></a>
                 </div>
             </div>

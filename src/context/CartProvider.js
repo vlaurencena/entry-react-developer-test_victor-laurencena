@@ -43,7 +43,7 @@ export default class MyProvider extends Component {
         localStorage.setItem(key, value);
     }
 
-    componentDidMount() {
+    UNSAFE_componentDidMount() {
         const localStorageCurrentCurrencyLabel = localStorage.getItem("currentCurrencyLabel");
         const localStorageCurrentCurrencySymbol = localStorage.getItem("currentCurrencySymbol");
         if (localStorageCurrentCurrencyLabel === null && localStorageCurrentCurrencySymbol === null) {
