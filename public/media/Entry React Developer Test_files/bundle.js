@@ -37629,7 +37629,7 @@ var Query = (function (_super) {
                 .catch(reject);
         }
     };
-    Query.prototype.componentWillReceiveProps = function (nextProps, nextContext) {
+    Query.prototype.UNSAFE_componentWillReceiveProps = function (nextProps, nextContext) {
         if (nextProps.skip && !this.props.skip) {
             this.queryObservable.resetLastResults();
             this.removeQuerySubscription();
@@ -37840,7 +37840,7 @@ var Mutation = (function (_super) {
     Mutation.prototype.componentWillUnmount = function () {
         this.hasMounted = false;
     };
-    Mutation.prototype.componentWillReceiveProps = function (nextProps, nextContext) {
+    Mutation.prototype.UNSAFE_componentWillReceiveProps = function (nextProps, nextContext) {
         var nextClient = getClient(nextProps, nextContext);
         if (shallowEqual(this.props, nextProps) && this.client === nextClient) {
             return;
@@ -37950,7 +37950,7 @@ var Subscription = (function (_super) {
     Subscription.prototype.componentDidMount = function () {
         this.startSubscription();
     };
-    Subscription.prototype.componentWillReceiveProps = function (nextProps, nextContext) {
+    Subscription.prototype.UNSAFE_componentWillReceiveProps = function (nextProps, nextContext) {
         var nextClient = getClient(nextProps, nextContext);
         if (shallowEqual(this.props.variables, nextProps.variables) &&
             this.client === nextClient &&
@@ -38177,7 +38177,7 @@ function withSubscription(document, operationOptions) {
                 _this.state = { resubscribe: false };
                 return _this;
             }
-            GraphQL.prototype.componentWillReceiveProps = function (nextProps) {
+            GraphQL.prototype.UNSAFE_componentWillReceiveProps = function (nextProps) {
                 if (!shouldResubscribe)
                     return;
                 this.setState({
@@ -41929,10 +41929,10 @@ function resolve(child, context, threadID) {
       inst.state = initialState = null;
     }
 
-    if (typeof inst.UNSAFE_componentWillMount === 'function' || typeof inst.componentWillMount === 'function') {
-      if (typeof inst.componentWillMount === 'function') {
+    if (typeof inst.UNSAFE_componentWillMount === 'function' || typeof inst.UNSAFE_componentWillMount === 'function') {
+      if (typeof inst.UNSAFE_componentWillMount === 'function') {
         {
-          if ( inst.componentWillMount.__suppressDeprecationWarning !== true) {
+          if ( inst.UNSAFE_componentWillMount.__suppressDeprecationWarning !== true) {
             var _componentName4 = getComponentName(Component) || 'Unknown';
 
             if (!didWarnAboutDeprecatedWillMount[_componentName4]) {
@@ -41947,7 +41947,7 @@ function resolve(child, context, threadID) {
 
 
         if (typeof Component.getDerivedStateFromProps !== 'function') {
-          inst.componentWillMount();
+          inst.UNSAFE_componentWillMount();
         }
       }
 
@@ -54174,8 +54174,8 @@ var ReactStrictModeWarnings = {
       return;
     }
 
-    if (typeof instance.componentWillMount === 'function' && // Don't warn about react-lifecycles-compat polyfilled components.
-    instance.componentWillMount.__suppressDeprecationWarning !== true) {
+    if (typeof instance.UNSAFE_componentWillMount === 'function' && // Don't warn about react-lifecycles-compat polyfilled components.
+    instance.UNSAFE_componentWillMount.__suppressDeprecationWarning !== true) {
       pendingComponentWillMountWarnings.push(fiber);
     }
 
@@ -54183,7 +54183,7 @@ var ReactStrictModeWarnings = {
       pendingUNSAFE_ComponentWillMountWarnings.push(fiber);
     }
 
-    if (typeof instance.componentWillReceiveProps === 'function' && instance.componentWillReceiveProps.__suppressDeprecationWarning !== true) {
+    if (typeof instance.UNSAFE_componentWillReceiveProps === 'function' && instance.UNSAFE_componentWillReceiveProps.__suppressDeprecationWarning !== true) {
       pendingComponentWillReceivePropsWarnings.push(fiber);
     }
 
@@ -54191,7 +54191,7 @@ var ReactStrictModeWarnings = {
       pendingUNSAFE_ComponentWillReceivePropsWarnings.push(fiber);
     }
 
-    if (typeof instance.componentWillUpdate === 'function' && instance.componentWillUpdate.__suppressDeprecationWarning !== true) {
+    if (typeof instance.UNSAFE_componentWillUpdate === 'function' && instance.UNSAFE_componentWillUpdate.__suppressDeprecationWarning !== true) {
       pendingComponentWillUpdateWarnings.push(fiber);
     }
 
@@ -55817,19 +55817,19 @@ function constructClassInstance(workInProgress, ctor, props) {
       var foundWillReceivePropsName = null;
       var foundWillUpdateName = null;
 
-      if (typeof instance.componentWillMount === 'function' && instance.componentWillMount.__suppressDeprecationWarning !== true) {
+      if (typeof instance.UNSAFE_componentWillMount === 'function' && instance.UNSAFE_componentWillMount.__suppressDeprecationWarning !== true) {
         foundWillMountName = 'componentWillMount';
       } else if (typeof instance.UNSAFE_componentWillMount === 'function') {
         foundWillMountName = 'UNSAFE_componentWillMount';
       }
 
-      if (typeof instance.componentWillReceiveProps === 'function' && instance.componentWillReceiveProps.__suppressDeprecationWarning !== true) {
+      if (typeof instance.UNSAFE_componentWillReceiveProps === 'function' && instance.UNSAFE_componentWillReceiveProps.__suppressDeprecationWarning !== true) {
         foundWillReceivePropsName = 'componentWillReceiveProps';
       } else if (typeof instance.UNSAFE_componentWillReceiveProps === 'function') {
         foundWillReceivePropsName = 'UNSAFE_componentWillReceiveProps';
       }
 
-      if (typeof instance.componentWillUpdate === 'function' && instance.componentWillUpdate.__suppressDeprecationWarning !== true) {
+      if (typeof instance.UNSAFE_componentWillUpdate === 'function' && instance.UNSAFE_componentWillUpdate.__suppressDeprecationWarning !== true) {
         foundWillUpdateName = 'componentWillUpdate';
       } else if (typeof instance.UNSAFE_componentWillUpdate === 'function') {
         foundWillUpdateName = 'UNSAFE_componentWillUpdate';
@@ -55862,8 +55862,8 @@ function callComponentWillMount(workInProgress, instance) {
   startPhaseTimer(workInProgress, 'componentWillMount');
   var oldState = instance.state;
 
-  if (typeof instance.componentWillMount === 'function') {
-    instance.componentWillMount();
+  if (typeof instance.UNSAFE_componentWillMount === 'function') {
+    instance.UNSAFE_componentWillMount();
   }
 
   if (typeof instance.UNSAFE_componentWillMount === 'function') {
@@ -55885,8 +55885,8 @@ function callComponentWillReceiveProps(workInProgress, instance, newProps, nextC
   var oldState = instance.state;
   startPhaseTimer(workInProgress, 'componentWillReceiveProps');
 
-  if (typeof instance.componentWillReceiveProps === 'function') {
-    instance.componentWillReceiveProps(newProps, nextContext);
+  if (typeof instance.UNSAFE_componentWillReceiveProps === 'function') {
+    instance.UNSAFE_componentWillReceiveProps(newProps, nextContext);
   }
 
   if (typeof instance.UNSAFE_componentWillReceiveProps === 'function') {
@@ -55961,7 +55961,7 @@ function mountClassInstance(workInProgress, ctor, newProps, renderExpirationTime
   // Unsafe lifecycles should not be invoked for components using the new APIs.
 
 
-  if (typeof ctor.getDerivedStateFromProps !== 'function' && typeof instance.getSnapshotBeforeUpdate !== 'function' && (typeof instance.UNSAFE_componentWillMount === 'function' || typeof instance.componentWillMount === 'function')) {
+  if (typeof ctor.getDerivedStateFromProps !== 'function' && typeof instance.getSnapshotBeforeUpdate !== 'function' && (typeof instance.UNSAFE_componentWillMount === 'function' || typeof instance.UNSAFE_componentWillMount === 'function')) {
     callComponentWillMount(workInProgress, instance); // If we had additional state updates during this life-cycle, let's
     // process them now.
 
@@ -55996,7 +55996,7 @@ function resumeMountClassInstance(workInProgress, ctor, newProps, renderExpirati
   // In order to support react-lifecycles-compat polyfilled components,
   // Unsafe lifecycles should not be invoked for components using the new APIs.
 
-  if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === 'function' || typeof instance.componentWillReceiveProps === 'function')) {
+  if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === 'function' || typeof instance.UNSAFE_componentWillReceiveProps === 'function')) {
     if (oldProps !== newProps || oldContext !== nextContext) {
       callComponentWillReceiveProps(workInProgress, instance, newProps, nextContext);
     }
@@ -56028,11 +56028,11 @@ function resumeMountClassInstance(workInProgress, ctor, newProps, renderExpirati
   if (shouldUpdate) {
     // In order to support react-lifecycles-compat polyfilled components,
     // Unsafe lifecycles should not be invoked for components using the new APIs.
-    if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillMount === 'function' || typeof instance.componentWillMount === 'function')) {
+    if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillMount === 'function' || typeof instance.UNSAFE_componentWillMount === 'function')) {
       startPhaseTimer(workInProgress, 'componentWillMount');
 
-      if (typeof instance.componentWillMount === 'function') {
-        instance.componentWillMount();
+      if (typeof instance.UNSAFE_componentWillMount === 'function') {
+        instance.UNSAFE_componentWillMount();
       }
 
       if (typeof instance.UNSAFE_componentWillMount === 'function') {
@@ -56090,7 +56090,7 @@ function updateClassInstance(current, workInProgress, ctor, newProps, renderExpi
   // In order to support react-lifecycles-compat polyfilled components,
   // Unsafe lifecycles should not be invoked for components using the new APIs.
 
-  if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === 'function' || typeof instance.componentWillReceiveProps === 'function')) {
+  if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === 'function' || typeof instance.UNSAFE_componentWillReceiveProps === 'function')) {
     if (oldProps !== newProps || oldContext !== nextContext) {
       callComponentWillReceiveProps(workInProgress, instance, newProps, nextContext);
     }
@@ -56130,11 +56130,11 @@ function updateClassInstance(current, workInProgress, ctor, newProps, renderExpi
   if (shouldUpdate) {
     // In order to support react-lifecycles-compat polyfilled components,
     // Unsafe lifecycles should not be invoked for components using the new APIs.
-    if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillUpdate === 'function' || typeof instance.componentWillUpdate === 'function')) {
+    if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillUpdate === 'function' || typeof instance.UNSAFE_componentWillUpdate === 'function')) {
       startPhaseTimer(workInProgress, 'componentWillUpdate');
 
-      if (typeof instance.componentWillUpdate === 'function') {
-        instance.componentWillUpdate(newProps, newState, nextContext);
+      if (typeof instance.UNSAFE_componentWillUpdate === 'function') {
+        instance.UNSAFE_componentWillUpdate(newProps, newState, nextContext);
       }
 
       if (typeof instance.UNSAFE_componentWillUpdate === 'function') {
@@ -74138,7 +74138,7 @@ var BrowserRouter = function (_React$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.history = Object(__WEBPACK_IMPORTED_MODULE_3_history__["createBrowserHistory"])(_this.props), _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  BrowserRouter.prototype.componentWillMount = function componentWillMount() {
+  BrowserRouter.prototype.UNSAFE_componentWillMount = function componentWillMount() {
     __WEBPACK_IMPORTED_MODULE_0_warning___default()(!this.props.history, "<BrowserRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { BrowserRouter as Router }`.");
   };
 
@@ -74209,7 +74209,7 @@ var HashRouter = function (_React$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.history = Object(__WEBPACK_IMPORTED_MODULE_3_history__["createHashHistory"])(_this.props), _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  HashRouter.prototype.componentWillMount = function componentWillMount() {
+  HashRouter.prototype.UNSAFE_componentWillMount = function componentWillMount() {
     __WEBPACK_IMPORTED_MODULE_0_warning___default()(!this.props.history, "<HashRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { HashRouter as Router }`.");
   };
 
@@ -74728,7 +74728,7 @@ var MemoryRouter = function (_React$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.history = Object(__WEBPACK_IMPORTED_MODULE_3_history__["createMemoryHistory"])(_this.props), _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  MemoryRouter.prototype.componentWillMount = function componentWillMount() {
+  MemoryRouter.prototype.UNSAFE_componentWillMount = function componentWillMount() {
     __WEBPACK_IMPORTED_MODULE_0_warning___default()(!this.props.history, "<MemoryRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { MemoryRouter as Router }`.");
   };
 
@@ -74804,13 +74804,13 @@ var Prompt = function (_React$Component) {
     }
   };
 
-  Prompt.prototype.componentWillMount = function componentWillMount() {
+  Prompt.prototype.UNSAFE_componentWillMount = function componentWillMount() {
     __WEBPACK_IMPORTED_MODULE_2_invariant___default()(this.context.router, "You should not use <Prompt> outside a <Router>");
 
     if (this.props.when) this.enable(this.props.message);
   };
 
-  Prompt.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+  Prompt.prototype.UNSAFE_componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
     if (nextProps.when) {
       if (!this.props.when || this.props.message !== nextProps.message) this.enable(nextProps.message);
     } else {
@@ -74901,7 +74901,7 @@ var Redirect = function (_React$Component) {
     return this.context.router && this.context.router.staticContext;
   };
 
-  Redirect.prototype.componentWillMount = function componentWillMount() {
+  Redirect.prototype.UNSAFE_componentWillMount = function componentWillMount() {
     __WEBPACK_IMPORTED_MODULE_3_invariant___default()(this.context.router, "You should not use <Redirect> outside a <Router>");
 
     if (this.isStatic()) this.perform();
@@ -75071,7 +75071,7 @@ var Route = function (_React$Component) {
     return Object(__WEBPACK_IMPORTED_MODULE_4__matchPath__["a" /* default */])(pathname, { path: path, strict: strict, exact: exact, sensitive: sensitive }, route.match);
   };
 
-  Route.prototype.componentWillMount = function componentWillMount() {
+  Route.prototype.UNSAFE_componentWillMount = function componentWillMount() {
     __WEBPACK_IMPORTED_MODULE_0_warning___default()(!(this.props.component && this.props.render), "You should not use <Route component> and <Route render> in the same route; <Route render> will be ignored");
 
     __WEBPACK_IMPORTED_MODULE_0_warning___default()(!(this.props.component && this.props.children && !isEmptyChildren(this.props.children)), "You should not use <Route component> and <Route children> in the same route; <Route children> will be ignored");
@@ -75079,7 +75079,7 @@ var Route = function (_React$Component) {
     __WEBPACK_IMPORTED_MODULE_0_warning___default()(!(this.props.render && this.props.children && !isEmptyChildren(this.props.children)), "You should not use <Route render> and <Route children> in the same route; <Route children> will be ignored");
   };
 
-  Route.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps, nextContext) {
+  Route.prototype.UNSAFE_componentWillReceiveProps = function componentWillReceiveProps(nextProps, nextContext) {
     __WEBPACK_IMPORTED_MODULE_0_warning___default()(!(nextProps.location && !this.props.location), '<Route> elements should not change from uncontrolled to controlled (or vice versa). You initially used no "location" prop and then provided one on a subsequent render.');
 
     __WEBPACK_IMPORTED_MODULE_0_warning___default()(!(!nextProps.location && this.props.location), '<Route> elements should not change from controlled to uncontrolled (or vice versa). You provided a "location" prop initially but omitted it on a subsequent render.');
@@ -75216,7 +75216,7 @@ var Router = function (_React$Component) {
     };
   };
 
-  Router.prototype.componentWillMount = function componentWillMount() {
+  Router.prototype.UNSAFE_componentWillMount = function componentWillMount() {
     var _this2 = this;
 
     var _props = this.props,
@@ -75236,7 +75236,7 @@ var Router = function (_React$Component) {
     });
   };
 
-  Router.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+  Router.prototype.UNSAFE_componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
     __WEBPACK_IMPORTED_MODULE_0_warning___default()(this.props.history === nextProps.history, "You cannot change <Router history>");
   };
 
@@ -75393,7 +75393,7 @@ var StaticRouter = function (_React$Component) {
     };
   };
 
-  StaticRouter.prototype.componentWillMount = function componentWillMount() {
+  StaticRouter.prototype.UNSAFE_componentWillMount = function componentWillMount() {
     __WEBPACK_IMPORTED_MODULE_0_warning___default()(!this.props.history, "<StaticRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { StaticRouter as Router }`.");
   };
 
@@ -75484,11 +75484,11 @@ var Switch = function (_React$Component) {
     return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
   }
 
-  Switch.prototype.componentWillMount = function componentWillMount() {
+  Switch.prototype.UNSAFE_componentWillMount = function componentWillMount() {
     __WEBPACK_IMPORTED_MODULE_3_invariant___default()(this.context.router, "You should not use <Switch> outside a <Router>");
   };
 
-  Switch.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+  Switch.prototype.UNSAFE_componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
     __WEBPACK_IMPORTED_MODULE_2_warning___default()(!(nextProps.location && !this.props.location), '<Switch> elements should not change from uncontrolled to controlled (or vice versa). You initially used no "location" prop and then provided one on a subsequent render.');
 
     __WEBPACK_IMPORTED_MODULE_2_warning___default()(!(!nextProps.location && this.props.location), '<Switch> elements should not change from controlled to uncontrolled (or vice versa). You provided a "location" prop initially but omitted it on a subsequent render.');
