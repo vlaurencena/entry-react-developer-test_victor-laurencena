@@ -10,7 +10,6 @@ import {
 import { Redirect } from "react-router-dom";
 import CartProvider from "./context/CartProvider";
 
-
 // components
 import NavBar from "./components/NavBar";
 

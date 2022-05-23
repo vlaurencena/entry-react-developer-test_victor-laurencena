@@ -664,6 +664,10 @@ height: 43px; */
   gap: 8px;
 }
 
+.cart-widget-hover__buttons a {
+  text-decoration: none;
+}
+
 .cart-widget-hover__total {
   display: flex;
   justify-content: space-between;

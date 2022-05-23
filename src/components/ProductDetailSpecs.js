@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Parser from 'html-react-parser';
 
 //components
 import ProductBrandAndName from "./ProductBrandAndName";
@@ -10,14 +11,12 @@ import Button from "./Button";
 //context
 import CartContext from "../context/CartContext";
 
-
 class ProductDetailSpecs extends Component {
     static contextType = CartContext;
     constructor(props) {
         super(props);
         this.handleSelection = this.handleSelection.bind(this);
         this.handleAddToCart = this.handleAddToCart.bind(this);
-        this.createMarkup = this.createMarkup.bind(this);
     }
 
     handleSelection(e) {
@@ -47,10 +46,6 @@ class ProductDetailSpecs extends Component {
                 [this.props.attributes[i].name]: this.props.attributes[i].items[0].id
             })
         }
-    }
-
-    createMarkup() {
-        return { __html: this.props.description };
     }
 
     render() {
@@ -87,7 +82,7 @@ class ProductDetailSpecs extends Component {
                         color="black"
                     />
                 }
-                <div className="product-description" dangerouslySetInnerHTML={this.createMarkup()} />
+                <div className="product-description">{Parser(this.props.description)}</div>
             </div>
         );
     }

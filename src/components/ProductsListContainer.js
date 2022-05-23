@@ -21,6 +21,7 @@ class ProductsListContainer extends Component {
 
     getProductsByCategory() {
         let data = this.props.data;
+        console.log(data);
         if (data.loading) {
             return (<div>Loading products...</div>)
         } else {
