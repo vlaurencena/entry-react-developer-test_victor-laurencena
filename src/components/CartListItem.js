@@ -20,8 +20,9 @@ class CartListItem extends Component {
                         name={this.props.item.name}
                     />
                     <ProductPrice
-                        symbol={price.currency.symbol}
                         amount={price.amount}
+                        onWidget={this.props.onWidget}
+                        symbol={price.currency.symbol}
                     />
                     <ProductAttributes
                         attributes={this.props.item.attributes}

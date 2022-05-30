@@ -354,7 +354,7 @@ a.nav-bar__links--selected {
   color: #ffffff;
 }
 
-.product-attribute-type-color {
+.cart-page-container .product-attribute-type-color {
   margin: 0 3px;
   min-width: 32px;
   min-height: 32px;
@@ -442,7 +442,7 @@ a.nav-bar__links--selected {
 }
 
 .add-and-subtract-amount {
-  min-width: 45px;
+  font-size: 1.5rem;
 }
 .add-and-subtract-button {
   height: 45px;
@@ -484,15 +484,21 @@ a.nav-bar__links--selected {
 .cart-list-item-carrousel-on-widget {
   width: 121px;
   height: 190px;
+  margin-left: 8px
 }
 
 .cart-list-item-carrousel,
 .cart-list-item-carrousel-on-widget {
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: auto 100%;
   position: relative;
-  margin: auto 0;
+  min-height: 100%;
+}
+
+.cart-list-item-carrousel {
+  background-size: 100%;
+  margin-left: 24px;
 }
 
 .cart-list-item-carrousel__control {
@@ -599,24 +605,64 @@ a.nav-bar__links--selected {
   overflow-x: hidden;
 }
 
+.cart-widget-hover__my-bag > span {
+  font-weight: 700;
+}
+.cart-widget-hover__my-bag {
+  font-weight: 500;
+}
+
 @media (max-height: 800px) {
   .cart-widget-hover {
     max-height: 70vh;
   }
 }
+
+.cart-widget-hover__list .product-detail-specs__brand,
+.cart-widget-hover__list .product-detail-specs__name {
+  font-size: 1rem;
+  font-weight: 300;
+}
+/* .cart-widget-hover .product-detail-specs__name,
 .cart-widget-hover .product-detail-specs__attributes-list > div {
   font-size: 0.875rem;
   height: 24px;
   padding: 0 2px;
   cursor: inherit;
+} */
+
+.cart-widget-hover .product-detail-specs__amount {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.cart-widget-hover .product-detail-specs__attribute-name {
+  text-transform: capitalize;
+  font-weight: 400;
+  margin: 8px 0;
 }
 
 .cart-widget-hover .product-attribute-type-text {
+  cursor: default;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0;
+  height: 24px;
+  min-width: 24px;
+  font-size: 0.875rem;
+  margin: 0;
 }
+
+.cart-widget-hover .product-detail-specs__attributes-list {
+  gap: 8px;
+}
+.cart-widget-hover .product-attribute-type-color {
+  cursor: default;
+  width: 16px;
+  height: 16px;
+}
+
 
 .cart-widget-hover .product-brand-and-name {
   gap: 0;
@@ -628,22 +674,23 @@ a.nav-bar__links--selected {
   padding: 0;
 }
 
-.cart-widget-hover .product-detail-specs__brand,
-.cart-widget-hover .product-detail-specs__name,
-.cart-widget-hover .product-detail-specs__amount {
-  font-size: 1rem;
-}
 .cart-widget-hover .add-and-subtract-container {
   width: 24px;
   height: 190px;
+  min-height: 100%;
+}
+
+.cart-widget-hover .add-and-subtract-container .add-and-subtract-amount {
+font-size: 1rem;
 }
 
 .cart-widget-hover .cart-list-item-carrousel {
   width: 121px;
   height: 190px;
+  margin-left: 8px;
 }
 
-.cart-widget-hover .cart-list-info {
+.cart-list-info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
